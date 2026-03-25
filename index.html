@@ -1,55 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>My Homepage: Introduce of Myself - LIS351 M1:Project</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hao (Edison) Wu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Noto+Serif+SC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d0e;
+      --surface: #111416;
+      --surface2: #181b1e;
+      --border: #222629;
+      --accent: #b8f050;
+      --accent2: #50d0f0;
+      --accent3: #f05090;
+      --text: #e4e8ea;
+      --text-muted: #72808c;
+      --text-dim: #3e4a54;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 47px, var(--border) 47px, var(--border) 48px),
+        repeating-linear-gradient(90deg, transparent, transparent 47px, var(--border) 47px, var(--border) 48px);
+      opacity: 0.13;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .zh { display: none; }
+    body.lang-zh .en { display: none; }
+    body.lang-zh .zh { display: revert; }
+    body.lang-zh { font-family: 'Noto Serif SC', 'DM Sans', sans-serif; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(11,13,14,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px; margin: 0 auto; padding: 0 2rem;
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .lang-toggle {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted);
+      padding: 0.3rem 0.75rem; cursor: pointer; border-radius: 2px; transition: all 0.2s;
+    }
+    .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* LAYOUT */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+    /* HERO */
+    .hero { padding: 5.5rem 0 4.5rem; display: grid; grid-template-columns: 1fr 160px; gap: 3rem; align-items: start; }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; opacity: 0; animation: up 0.5s 0.05s forwards; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.3rem; opacity: 0; animation: up 0.5s 0.15s forwards; }
+    body.lang-zh .hero h1 { font-family: 'Noto Serif SC', serif; }
+    .hero h1 .name-en { display: block; }
+    .hero h1 .name-zh { display: none; font-size: 0.7em; color: var(--text-muted); font-style: italic; }
+    body.lang-zh .hero h1 .name-en { display: none; }
+    body.lang-zh .hero h1 .name-zh { display: block; }
+    .hero-position { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.8rem; opacity: 0; animation: up 0.5s 0.22s forwards; }
+    .hero-bio { font-size: 0.95rem; color: var(--text); max-width: 540px; margin-bottom: 2rem; opacity: 0; animation: up 0.5s 0.3s forwards; line-height: 1.8; }
+    .hero-bio strong { color: var(--accent); font-weight: 500; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0.6rem; opacity: 0; animation: up 0.5s 0.38s forwards; }
+    .pill {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.05em;
+      padding: 0.38rem 0.85rem; border: 1px solid var(--border); border-radius: 2px;
+      color: var(--text-muted); text-decoration: none; background: var(--surface);
+      transition: all 0.18s; display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(184,240,80,0.05); }
+    .hero-avatar {
+      width: 140px; height: 160px; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 3px; display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--accent);
+      position: relative; overflow: hidden; opacity: 0; animation: up 0.5s 0.15s forwards; flex-shrink: 0;
+    }
+    .hero-avatar::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(transparent, rgba(184,240,80,0.07)); }
+
+    /* SECTION */
+    section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .sec-label {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 2.2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* THREADS */
+    .threads { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .thread { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1.4rem; transition: border-color 0.2s; }
+    .thread:hover { border-color: var(--accent2); }
+    .thread-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent2); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .thread p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; }
+    .thread p em { color: var(--accent3); font-style: normal; }
+
+    /* PUBLICATIONS */
+    .pub-group { margin-top: 2rem; }
+    .pub-group:first-child { margin-top: 0; }
+    .pub-group-label { font-family: 'DM Mono', monospace; font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.8rem; }
+    .pub {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
+      padding: 1.3rem 1.5rem; margin-bottom: 0.7rem;
+      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+      transition: border-color 0.2s;
+    }
+    .pub:hover { border-color: var(--accent3); }
+    .pub-title { font-family: 'DM Serif Display', serif; font-size: 1rem; line-height: 1.35; margin-bottom: 0.45rem; }
+    .pub-authors { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem; line-height: 1.5; }
+    .pub-authors strong { color: var(--text); font-weight: 500; }
+    .pub-venue { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.03em; }
+    .badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.06em; padding: 0.22rem 0.6rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+    .badge-review { background: rgba(240,80,144,0.12); color: var(--accent3); border: 1px solid rgba(240,80,144,0.22); }
+    .badge-pub    { background: rgba(184,240,80,0.1);  color: var(--accent);  border: 1px solid rgba(184,240,80,0.22); }
+    .badge-prep   { background: rgba(80,208,240,0.08); color: var(--accent2); border: 1px solid rgba(80,208,240,0.18); }
+
+    /* EXPERIENCE */
+    .exp-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-title { font-family: 'DM Serif Display', serif; font-size: 1rem; margin-bottom: 0.2rem; }
+    .exp-sub { font-size: 0.83rem; color: var(--accent); margin-bottom: 0.5rem; font-style: italic; }
+    .exp-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.65; }
+    .exp-meta { text-align: right; flex-shrink: 0; }
+    .exp-date { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.06em; white-space: nowrap; }
+    .exp-loc { font-family: 'DM Mono', monospace; font-size: 0.66rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+    /* SKILLS */
+    .skill-row { display: grid; grid-template-columns: 160px 1fr; gap: 1rem; align-items: baseline; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-key { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent2); letter-spacing: 0.06em; }
+    .skill-val { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* EDUCATION */
+    .edu-item { padding: 1.3rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 1rem; }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-school { font-family: 'DM Serif Display', serif; font-size: 1rem; margin-bottom: 0.2rem; }
+    .edu-degree { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+    .edu-note { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent); letter-spacing: 0.04em; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 0; text-align: center; }
+    .footer-inner { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.06em; }
+    .footer-inner a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-inner a:hover { color: var(--accent); }
+
+    @keyframes up {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-avatar { width: 90px; height: 100px; font-size: 2.4rem; }
+      .threads { grid-template-columns: 1fr; }
+      .pub { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-meta { text-align: left; }
+      .skill-row { grid-template-columns: 1fr; gap: 0.2rem; }
+      .edu-item { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
-
 <body>
-    <main>
 
-        <h1 style="font-size: 50px;">Welcome to My Website</h1>
-        <h2 style="font-size: 30px; font-style: italic; font-weight: normal;">This is a simple website to Introduce
-            Myself</h2>
-        <p style="color: #c00000; font-weight: bold; text-align: center;">This is Major Project 1 for LIS351.My name is
-            Hao Wu, hwu522 This website was coded
-            by hand!</p>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">HW_</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#research" class="en">Research</a><a href="#research" class="zh">研究</a></li>
+        <li><a href="#publications" class="en">Publications</a><a href="#publications" class="zh">论文</a></li>
+        <li><a href="#experience" class="en">Experience</a><a href="#experience" class="zh">经历</a></li>
+        <li><a href="#education" class="en">Education</a><a href="#education" class="zh">教育</a></li>
+      </ul>
+      <button class="lang-toggle" onclick="toggleLang()" id="langBtn">中文</button>
+    </div>
+  </div>
+</nav>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Aboutme.html">About Me</a></li>
-                <li><a href="Basketball.html">Basketball</a></li>
-                <li><a href="Kanye.html">My Singer</a></li>
-                <li><a href="Family.html">My Family</a></li>
-            </ul>
-        </nav>
+<div class="container">
 
-        <h2 style="font-size: 30px;">About This Project</h2>
-        <h3 style="font-size: 25px;">Project Tools</h3>
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow en">Undergraduate Researcher · UW–Madison</div>
+      <div class="hero-eyebrow zh">本科科研 · 威斯康星大学麦迪逊分校</div>
+      <h1>
+        <span class="name-en">Hao (Edison) Wu</span>
+        <span class="name-zh">吴浩</span>
+      </h1>
+      <p class="hero-position en">B.S. Data Science & Information Science &nbsp;·&nbsp; GPA 4.0 / 4.0 &nbsp;·&nbsp; Expected Dec. 2026</p>
+      <p class="hero-position zh">数据科学与信息科学双专业 &nbsp;·&nbsp; GPA 4.0 / 4.0 &nbsp;·&nbsp; 预计2026年12月毕业</p>
+      <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — asking when and why language and vision-language models should trust external evidence, and how to enforce that trust <em>by design</em> rather than post-hoc inspection. Two in-progress works at SIGIR '26 and ACM MM '26.</p>
+      <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——探究语言与视觉语言模型何时应信任外部证据，以及如何从设计层面保障可信性，而非事后检验。目前有两项工作正在SIGIR '26与ACM MM '26审稿中。</p>
+      <div class="hero-links">
+        <a class="pill" href="mailto:hwu522@wisc.edu">✉ hwu522@wisc.edu</a>
+        <a class="pill" href="https://github.com/YOUR_GITHUB" target="_blank">⌥ GitHub</a>
+        <a class="pill" href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">↗ LinkedIn</a>
+        <a class="pill" href="Hao_Wu_CV.pdf" target="_blank">↓ CV</a>
+      </div>
+    </div>
+    <div class="hero-avatar">H</div>
+  </div>
 
-        <dl>
-            <dt>HTML</dt>
-            <dd><i> Markup Language, I used it to build the structure of the webpage.</i></dd>
-            <dt>CSS</dt>
-            <dd><i>Cascading Style Sheets, I used it to added some visual changes and modifies of my webpage.</i></dd>
-            <dt>VS Code</dt>
-            <dd><i>he text editor I used to write the code(Strong Recommended).</i></dd>
-        </dl>
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="sec-label en">Research</div>
+    <div class="sec-label zh">研究方向</div>
+    <div class="threads">
+      <div class="thread">
+        <div class="thread-tag en">01 · RAG Robustness</div>
+        <div class="thread-tag zh">01 · RAG鲁棒性</div>
+        <p class="en">Token-level confidence gain as a training-free circuit breaker against noisy retrieval. → <em>GOING, SIGIR '26</em></p>
+        <p class="zh">利用token级置信度增益作为免训练电路断路器，抵御有害检索干扰。→ <em>GOING, SIGIR '26</em></p>
+      </div>
+      <div class="thread">
+        <div class="thread-tag en">02 · Grounded Generation</div>
+        <div class="thread-tag zh">02 · 有依据的生成</div>
+        <p class="en">Sentence-level evidence commitment in 3D CT reporting — every claim auditably traceable to a spatial token. → <em>ProveTok, ACM MM '26</em></p>
+        <p class="zh">3D CT报告中的句子级证据承诺——每条声明均可追溯至空间token。→ <em>ProveTok, ACM MM '26</em></p>
+      </div>
+      <div class="thread">
+        <div class="thread-tag en">03 · Quantitative Finance</div>
+        <div class="thread-tag zh">03 · 量化金融</div>
+        <p class="en">Deep learning (GANs, GRU-CNN) and ML pipelines for financial prediction and ESG-driven bond forecasting.</p>
+        <p class="zh">深度学习（GAN、GRU-CNN）与ML流程用于金融预测与ESG债券发行预测。</p>
+      </div>
+      <div class="thread">
+        <div class="thread-tag en">04 · AI for Complex Systems</div>
+        <div class="thread-tag zh">04 · 复杂系统AI</div>
+        <p class="en">Spatial reasoning and uncertainty-aware generation for structured, data-rich decision environments.</p>
+        <p class="zh">面向结构化数据密集型决策环境的空间推理与不确定性感知生成。</p>
+      </div>
+    </div>
+  </section>
 
-        <h3 style="font-size: 25px;">Page Content</h3>
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="sec-label en">Publications & Manuscripts</div>
+    <div class="sec-label zh">论文与手稿</div>
 
-        <ul>
-            <li><b>(You are here)</b> </li>
-            <li><b>Page 2 (About Me)</b></li>
-            <li><b>Page 3 (My Favorite Sport)</b> </li>
-            <li><b>Page 4 (My Favorite Singer)</b> </li>
-            <li><b>Page 5 (My Family)</b> </li>
-        </ul>
+    <div class="pub-group">
+      <div class="pub-group-label en">Under Review</div>
+      <div class="pub-group-label zh">审稿中</div>
 
-    </main>
+      <div class="pub">
+        <div>
+          <div class="pub-title en">ProveTok: Verifiable 3D CT Report Generation with Token-Level Evidence Grounding</div>
+          <div class="pub-title zh">ProveTok：基于Token级证据定位的可验证3D CT报告生成</div>
+          <div class="pub-authors en">Tianyi Chen*, <strong>Hao Wu*</strong>, TianMing Sha, Sipeng Chen, Junnan Li, Hang Zhou, Xiao Luo &nbsp;<span style="font-size:0.8em;color:var(--text-dim)">(*Co-first Authors)</span></div>
+          <div class="pub-authors zh">陈天一*, <strong>吴浩*</strong>, 沙天明, 陈思鹏, 李俊男, 周航, 罗潇 &nbsp;<span style="font-size:0.8em;color:var(--text-dim)">(*共同第一作者)</span></div>
+          <div class="pub-venue">ACM Multimedia 2026 &nbsp;·&nbsp; Submission #4550 &nbsp;·&nbsp; Mar. 2026</div>
+        </div>
+        <span class="badge badge-review en">Under Review</span>
+        <span class="badge badge-review zh">审稿中</span>
+      </div>
+
+      <div class="pub">
+        <div>
+          <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
+          <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
+          <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
+          <div class="pub-authors zh"><strong>吴浩</strong>, 周航, 罗潇</div>
+          <div class="pub-venue">ACM SIGIR 2026 Short Papers &nbsp;·&nbsp; Submission #323 &nbsp;·&nbsp; Feb. 2026</div>
+        </div>
+        <span class="badge badge-review en">Under Review</span>
+        <span class="badge badge-review zh">审稿中</span>
+      </div>
+    </div>
+
+    <div class="pub-group">
+      <div class="pub-group-label en">Published</div>
+      <div class="pub-group-label zh">已发表</div>
+      <div class="pub">
+        <div>
+          <div class="pub-title en">Forecast of Bond Issuance Based on ESG Score</div>
+          <div class="pub-title zh">基于ESG评分的债券发行预测</div>
+          <div class="pub-authors en"><strong>Hao Wu</strong> et al. &nbsp;<span style="font-size:0.8em;color:var(--text-dim)">(Co-first Author)</span></div>
+          <div class="pub-authors zh"><strong>吴浩</strong> 等 &nbsp;<span style="font-size:0.8em;color:var(--text-dim)">(共同第一作者)</span></div>
+          <div class="pub-venue">Academic Journal of Mathematical Sciences, Francis Academic Press · 2023 · 2,400+ views</div>
+        </div>
+        <span class="badge badge-pub en">Published</span>
+        <span class="badge badge-pub zh">已发表</span>
+      </div>
+    </div>
+
+    <div class="pub-group">
+      <div class="pub-group-label en">In Preparation</div>
+      <div class="pub-group-label zh">准备中</div>
+      <div class="pub">
+        <div>
+          <div class="pub-title en">GAN-Based Stock Price Prediction Using a GRU-CNN Architecture</div>
+          <div class="pub-title zh">基于GRU-CNN架构的GAN股价预测</div>
+          <div class="pub-authors en"><strong>Hao Wu</strong> &nbsp;<span style="font-size:0.8em;color:var(--text-dim)">(First Author)</span></div>
+          <div class="pub-authors zh"><strong>吴浩</strong> &nbsp;<span style="font-size:0.8em;color:var(--text-dim)">(第一作者)</span></div>
+          <div class="pub-venue">Manuscript in preparation · 2023</div>
+        </div>
+        <span class="badge badge-prep en">In Prep</span>
+        <span class="badge badge-prep zh">准备中</span>
+      </div>
+      <div class="pub">
+        <div>
+          <div class="pub-title en">Task-Adaptive Inference Strategy for RAG Robustness: Relevance Guardrail and Inference-Time Slicer</div>
+          <div class="pub-title zh">面向RAG鲁棒性的任务自适应推理策略：相关性护栏与推理时切片器</div>
+          <div class="pub-authors en"><strong>Hao Wu</strong> et al.</div>
+          <div class="pub-authors zh"><strong>吴浩</strong> 等</div>
+          <div class="pub-venue">Ongoing research · UW–Madison, 2023–Present</div>
+        </div>
+        <span class="badge badge-prep en">Ongoing</span>
+        <span class="badge badge-prep zh">进行中</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-label en">Research & Professional Experience</div>
+    <div class="sec-label zh">科研与实习经历</div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-title en">UW–Madison, Department of Statistics</div>
+        <div class="exp-title zh">威斯康星大学麦迪逊分校统计系</div>
+        <div class="exp-sub en">Undergraduate Research Assistant</div>
+        <div class="exp-sub zh">本科科研助理</div>
+        <div class="exp-desc en">Investigating RAG robustness and hallucination mitigation. Led to two top-venue submissions (SIGIR '26, ACM MM '26). Core focus: training-free confidence-based circuit breakers and token-level evidence commitment for grounded generation.</div>
+        <div class="exp-desc zh">研究RAG鲁棒性与幻觉缓解，形成两篇顶会投稿（SIGIR '26、ACM MM '26）。核心：免训练置信度电路断路器与token级证据承诺。</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">Sep. 2023 – Present</div>
+        <div class="exp-loc en">Madison, WI</div>
+        <div class="exp-loc zh">麦迪逊</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-title en">MadData 2026 Hackathon — MadNote AI</div>
+        <div class="exp-title zh">MadData 2026 黑客马拉松 — MadNote AI</div>
+        <div class="exp-sub en">Backend & AI Developer · dotData @ UW–Madison</div>
+        <div class="exp-sub zh">后端与AI开发 · dotData @ UW–Madison</div>
+        <div class="exp-desc en">FastAPI backend with Mistral-7B + RAG for academic paper Q&A; BERT-powered keyword extraction for knowledge graph recommendations.</div>
+        <div class="exp-desc zh">构建FastAPI后端，整合Mistral-7B与RAG实现论文问答；BERT关键词提取驱动知识图谱推荐。</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">Feb. 2026</div>
+        <div class="exp-loc en">Madison, WI</div>
+        <div class="exp-loc zh">麦迪逊</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-title en">Guo Dao Asset Management Co., Ltd.</div>
+        <div class="exp-title zh">国道资产管理有限公司</div>
+        <div class="exp-sub en">Data Engineering Intern (Quantitative Trading)</div>
+        <div class="exp-sub zh">数据工程实习生（量化交易）</div>
+        <div class="exp-desc en">High-throughput real-time data pipelines for HFT; managed a 10M RMB simulation system validating ML-based trend-tracking strategies.</div>
+        <div class="exp-desc zh">构建高吞吐实时数据管道用于高频交易；管理千万规模仿真系统验证ML趋势跟踪策略。</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">Jun. – Aug. 2025</div>
+        <div class="exp-loc en">Shanghai</div>
+        <div class="exp-loc zh">上海</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-title en">Dong Hai Securities Co., Ltd.</div>
+        <div class="exp-title zh">东海证券有限责任公司</div>
+        <div class="exp-sub en">Data Analyst Intern</div>
+        <div class="exp-sub zh">数据分析实习生</div>
+        <div class="exp-desc en">Automated preprocessing pipelines for 500+ companies with Pandas; scraped and structured financial logs from Wind/Flush databases.</div>
+        <div class="exp-desc zh">用Pandas为500余家公司自动化数据预处理；从Wind/Flush数据库抓取并结构化金融日志。</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">Jul. – Aug. 2023</div>
+        <div class="exp-loc en">Changzhou</div>
+        <div class="exp-loc zh">常州</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-title en">UW–Madison, Department of Statistics</div>
+        <div class="exp-title zh">威斯康星大学麦迪逊分校统计系</div>
+        <div class="exp-sub en">Data Science Peer Mentor</div>
+        <div class="exp-sub zh">数据科学朋辈导师</div>
+        <div class="exp-desc en">Mentoring undergraduates in ML, statistics, and Python/R; weekly office hours and project guidance.</div>
+        <div class="exp-desc zh">辅导本科生ML、统计学与Python/R；每周答疑与项目指导。</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">Jul. 2025 – Present</div>
+        <div class="exp-loc en">Madison, WI</div>
+        <div class="exp-loc zh">麦迪逊</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="sec-label en">Education</div>
+    <div class="sec-label zh">教育背景</div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-school en">University of Wisconsin–Madison</div>
+        <div class="edu-school zh">威斯康星大学麦迪逊分校</div>
+        <div class="edu-degree en">B.S. Data Science & Information Science (Double Major)</div>
+        <div class="edu-degree zh">数据科学与信息科学双专业理学学士</div>
+        <div class="edu-note en">GPA 4.0 / 4.0 &nbsp;·&nbsp; L&S Dean's List &nbsp;·&nbsp; Transferred from XJTLU 2024</div>
+        <div class="edu-note zh">GPA 4.0 / 4.0 &nbsp;·&nbsp; 文理学院院长名单 &nbsp;·&nbsp; 2024年由西交利物浦大学转入</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">2022 – Dec. 2026</div>
+        <div class="exp-loc en">Madison, WI</div>
+        <div class="exp-loc zh">麦迪逊</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-school en">Xi'an Jiao Tong – Liverpool University (XJTLU)</div>
+        <div class="edu-school zh">西交利物浦大学</div>
+        <div class="edu-degree en">Year 1–2, Data Science</div>
+        <div class="edu-degree zh">大一至大二，数据科学</div>
+        <div class="edu-note en">University Excellence Award</div>
+        <div class="edu-note zh">校级优秀奖</div>
+      </div>
+      <div class="exp-meta">
+        <div class="exp-date">2022 – 2024</div>
+        <div class="exp-loc en">Suzhou, China</div>
+        <div class="exp-loc zh">苏州</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-label en">Technical Skills</div>
+    <div class="sec-label zh">技术技能</div>
+    <div class="skill-row">
+      <div class="skill-key en">Languages</div><div class="skill-key zh">编程语言</div>
+      <div class="skill-val">Python · R · MySQL · MongoDB · MATLAB</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-key en">ML / Data</div><div class="skill-key zh">机器学习</div>
+      <div class="skill-val">PyTorch · Scikit-learn · Pandas · NumPy · XGBoost · LightGBM · GANs · Spark · HDFS · R/Shiny</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-key en">LLM Engineering</div><div class="skill-key zh">大模型工程</div>
+      <div class="skill-val">Hugging Face · RAG · Prompt Engineering · FastAPI · Multi-agent · Llama-3 · Mistral · BERT</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-key en">Finance</div><div class="skill-key zh">金融工具</div>
+      <div class="skill-val">Bloomberg · Wind-Stock-DB · QMT · Financial Modeling · Stock APIs</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-key en">Languages (Human)</div><div class="skill-key zh">语言</div>
+      <div class="skill-val en">English (Fluent) · Mandarin (Native) · Spanish (Elementary)</div>
+      <div class="skill-val zh">英语（流利）· 普通话（母语）· 西班牙语（入门）</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="en">© 2026 Hao (Edison) Wu &nbsp;·&nbsp; <a href="mailto:hwu522@wisc.edu">hwu522@wisc.edu</a> &nbsp;·&nbsp; Madison, WI</span>
+      <span class="zh">© 2026 吴浩 &nbsp;·&nbsp; <a href="mailto:hwu522@wisc.edu">hwu522@wisc.edu</a> &nbsp;·&nbsp; 威斯康星州麦迪逊</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const btn  = document.getElementById('langBtn');
+    if (body.classList.contains('lang-zh')) {
+      body.classList.remove('lang-zh');
+      btn.textContent = '中文';
+      document.documentElement.lang = 'en';
+    } else {
+      body.classList.add('lang-zh');
+      btn.textContent = 'English';
+      document.documentElement.lang = 'zh';
+    }
+  }
+</script>
 </body>
-
 </html>
