@@ -1,236 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hao (Edison) Wu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --green: #2d6a4f;
-      --green-light: #52b788;
-      --green-pale: #d8f3dc;
-      --green-bg: #f0faf3;
-      --text: #1a1a1a;
-      --text-muted: #6b7280;
-      --text-light: #9ca3af;
-      --border: #e5e7eb;
-      --white: #ffffff;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hao (Edison) Wu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:#1e5c3a; --green-light:#3da066; --green-pale:#cef0d8;
+  --green-bg:#edf8f1; --text:#111827; --text-muted:#4b5563;
+  --text-light:#9ca3af; --border:#e5e7eb; --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;}
+body.lang-zh{font-family:'Noto Serif SC','IBM Plex Sans',sans-serif;}
+.zh{display:none;}
+body.lang-zh .en{display:none;}
+body.lang-zh .zh{display:revert;}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:800px;margin:0 auto;padding:0 2rem;height:54px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--green);text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;font-weight:600;color:var(--text-muted);text-decoration:none;letter-spacing:0.04em;transition:color .15s;}
+.nav-links a:hover{color:var(--green);}
+.lang-btn{font-family:'IBM Plex Mono',monospace;font-size:0.73rem;font-weight:600;letter-spacing:0.04em;color:var(--green);background:var(--green-pale);border:none;padding:0.3rem 0.75rem;border-radius:999px;cursor:pointer;transition:background .15s;}
+.lang-btn:hover{background:#b0e8c4;}
 
-    body {
-      background: var(--white);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
+.container{max-width:800px;margin:0 auto;padding:0 2rem;}
 
-    body.lang-zh { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
-    .zh { display: none; }
-    body.lang-zh .en { display: none; }
-    body.lang-zh .zh { display: revert; }
+.hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1fr 130px;gap:3rem;align-items:center;border-bottom:1px solid var(--border);}
+.hero-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.4rem,4.5vw,3.2rem);line-height:1.08;letter-spacing:-0.01em;color:var(--text);margin-bottom:0.5rem;opacity:0;animation:fadeup .5s .05s forwards;}
+.hero-name em{color:var(--green);font-style:italic;}
+.hero-title{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;font-weight:600;color:var(--text-muted);margin-bottom:1.5rem;letter-spacing:0.02em;opacity:0;animation:fadeup .5s .15s forwards;}
+.hero-bio{font-size:0.95rem;font-weight:400;color:var(--text);line-height:1.82;max-width:500px;margin-bottom:2rem;opacity:0;animation:fadeup .5s .22s forwards;}
+.hero-bio strong{color:var(--green);font-weight:700;}
+.hero-links{display:flex;flex-wrap:wrap;gap:0.5rem;opacity:0;animation:fadeup .5s .3s forwards;}
+.link-chip{font-family:'IBM Plex Mono',monospace;font-size:0.74rem;font-weight:600;color:var(--text-muted);text-decoration:none;padding:0.32rem 0.8rem;border:1.5px solid var(--border);border-radius:999px;transition:all .15s;display:flex;align-items:center;gap:0.35rem;}
+.link-chip:hover{border-color:var(--green-light);color:var(--green);background:var(--green-bg);}
+.link-chip svg{width:13px;height:13px;}
+.avatar{width:120px;height:120px;border-radius:50%;border:2.5px solid var(--green-pale);background:var(--green-bg);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:2.8rem;color:var(--green);flex-shrink:0;opacity:0;animation:fadeup .5s .1s forwards;}
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 780px; margin: 0 auto; padding: 0 2rem;
-      height: 52px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.05rem; color: var(--green); text-decoration: none; letter-spacing: 0.01em;
-    }
-    .nav-right { display: flex; align-items: center; gap: 2rem; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.8rem; color: var(--text-muted); text-decoration: none;
-      font-weight: 400; letter-spacing: 0.02em; transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--green); }
-    .lang-btn {
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--green); background: var(--green-pale);
-      border: none; padding: 0.28rem 0.7rem; border-radius: 999px;
-      cursor: pointer; transition: background 0.15s; font-family: inherit;
-    }
-    .lang-btn:hover { background: #b7e4c7; }
+section{padding:3.5rem 0;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+.sec-header{display:flex;align-items:baseline;gap:0.8rem;margin-bottom:2rem;}
+.sec-dot{width:7px;height:7px;border-radius:50%;background:var(--green-light);flex-shrink:0;margin-bottom:2px;}
+.sec-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.35rem;color:var(--text);}
 
-    /* ── LAYOUT ── */
-    .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+/* threads */
+.threads{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.thread{background:var(--white);padding:1.4rem 1.6rem;transition:background .15s;}
+.thread:hover{background:var(--green-bg);}
+.thread-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600;color:var(--green-light);letter-spacing:0.1em;margin-bottom:0.3rem;}
+.thread-head{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;}
+.thread-body{font-size:0.83rem;font-weight:400;color:var(--text-muted);line-height:1.65;}
+.thread-body em{color:var(--green);font-style:normal;font-weight:700;}
 
-    /* ── HERO ── */
-    .hero {
-      padding: 5rem 0 4rem;
-      display: grid; grid-template-columns: 1fr 120px;
-      gap: 3rem; align-items: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-name {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      line-height: 1.1; letter-spacing: -0.01em;
-      color: var(--text); margin-bottom: 0.5rem;
-      opacity: 0; animation: fadeup 0.5s 0.05s forwards;
-    }
-    .hero-name em { color: var(--green); font-style: italic; }
-    .hero-title {
-      font-size: 0.85rem; color: var(--text-muted);
-      margin-bottom: 1.5rem; font-weight: 400;
-      opacity: 0; animation: fadeup 0.5s 0.15s forwards;
-    }
-    .hero-bio {
-      font-size: 0.93rem; color: var(--text); line-height: 1.8;
-      max-width: 500px; margin-bottom: 2rem;
-      opacity: 0; animation: fadeup 0.5s 0.22s forwards;
-    }
-    .hero-bio strong { color: var(--green); font-weight: 500; }
-    .hero-links {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-      opacity: 0; animation: fadeup 0.5s 0.3s forwards;
-    }
-    .link-chip {
-      font-size: 0.77rem; font-weight: 400; color: var(--text-muted);
-      text-decoration: none; padding: 0.3rem 0.75rem;
-      border: 1px solid var(--border); border-radius: 999px;
-      transition: all 0.15s; display: flex; align-items: center; gap: 0.35rem;
-    }
-    .link-chip:hover { border-color: var(--green-light); color: var(--green); background: var(--green-bg); }
-    .link-chip svg { width: 13px; height: 13px; }
+/* publications */
+.pub-group{margin-top:1.8rem;}
+.pub-group:first-child{margin-top:0;}
+.pub-group-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+.pub{padding:1.1rem 0;border-bottom:1px solid var(--border);display:flex;gap:1rem;align-items:flex-start;}
+.pub:last-child{border-bottom:none;}
+.pub-indicator{width:3px;border-radius:2px;flex-shrink:0;margin-top:4px;align-self:stretch;min-height:18px;}
+.ind-review{background:#f59e0b;}
+.ind-pub{background:var(--green-light);}
+.ind-prep{background:#d1d5db;}
+.pub-content{flex:1;}
+.pub-title{font-size:0.92rem;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:0.3rem;}
+.pub-authors{font-size:0.81rem;font-weight:400;color:var(--text-muted);margin-bottom:0.25rem;line-height:1.5;}
+.pub-authors strong{color:var(--text);font-weight:700;}
+.pub-meta{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;}
+.pub-venue{font-size:0.76rem;font-weight:400;color:var(--text-light);font-family:'IBM Plex Mono',monospace;}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:0.67rem;font-weight:600;padding:0.12rem 0.55rem;border-radius:999px;letter-spacing:0.03em;}
+.badge-review{background:#fef3c7;color:#92400e;}
+.badge-pub{background:var(--green-pale);color:var(--green);}
+.badge-prep{background:#f3f4f6;color:var(--text-light);}
 
-    /* avatar */
-    .avatar {
-      width: 110px; height: 110px; border-radius: 50%;
-      border: 2px solid var(--green-pale);
-      background: var(--green-bg);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Instrument Serif', serif;
-      font-size: 2.6rem; color: var(--green);
-      flex-shrink: 0;
-      opacity: 0; animation: fadeup 0.5s 0.1s forwards;
-    }
+/* experience */
+.exp-item{padding:1.3rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;}
+.exp-item:last-child{border-bottom:none;}
+.exp-org{font-size:0.93rem;font-weight:700;color:var(--text);margin-bottom:0.15rem;}
+.exp-role{font-family:'IBM Plex Mono',monospace;font-size:0.76rem;font-weight:600;color:var(--green);margin-bottom:0.45rem;letter-spacing:0.02em;}
+.exp-desc{font-size:0.84rem;font-weight:400;color:var(--text-muted);line-height:1.7;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
+.exp-tag{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600;padding:0.15rem 0.55rem;border:1px solid var(--border);border-radius:999px;color:var(--text-light);}
+.exp-right{text-align:right;flex-shrink:0;}
+.exp-date{font-family:'IBM Plex Mono',monospace;font-size:0.73rem;font-weight:600;color:var(--text-light);white-space:nowrap;}
+.exp-loc{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--text-light);margin-top:0.1rem;}
 
-    /* ── SECTION ── */
-    section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
-    section:last-of-type { border-bottom: none; }
+/* project card */
+.proj-card{border:1.5px solid var(--border);border-radius:8px;padding:1.6rem;margin-bottom:1rem;transition:border-color .2s,background .2s;}
+.proj-card:hover{border-color:var(--green-light);background:var(--green-bg);}
+.proj-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.7rem;}
+.proj-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--text);line-height:1.2;}
+.proj-badge{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600;padding:0.18rem 0.6rem;border-radius:999px;background:var(--green-pale);color:var(--green);white-space:nowrap;flex-shrink:0;}
+.proj-role{font-family:'IBM Plex Mono',monospace;font-size:0.73rem;font-weight:600;color:var(--green);margin-bottom:0.7rem;letter-spacing:0.02em;}
+.proj-desc{font-size:0.84rem;color:var(--text-muted);line-height:1.75;margin-bottom:0.8rem;}
+.proj-desc strong{color:var(--text);font-weight:700;}
+.proj-formula{background:#f9fafb;border:1px solid var(--border);border-radius:6px;padding:0.6rem 1rem;margin-bottom:0.8rem;font-family:'IBM Plex Mono',monospace;font-size:0.73rem;color:var(--text-muted);}
+.proj-formula span{color:var(--green);font-weight:600;}
+.proj-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.proj-link{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:600;padding:0.28rem 0.7rem;border:1.5px solid var(--border);border-radius:999px;color:var(--text-muted);text-decoration:none;transition:all .15s;}
+.proj-link:hover{border-color:var(--green-light);color:var(--green);}
 
-    .sec-header {
-      display: flex; align-items: baseline; gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .sec-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.25rem; color: var(--text); font-weight: 400;
-    }
-    .sec-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--green-light); flex-shrink: 0; margin-bottom: 2px;
-    }
+/* edu */
+.edu-item{padding:1.1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:1rem;}
+.edu-item:last-child{border-bottom:none;}
+.edu-school{font-size:0.93rem;font-weight:700;color:var(--text);margin-bottom:0.15rem;}
+.edu-degree{font-size:0.83rem;font-weight:400;color:var(--text-muted);margin-bottom:0.25rem;}
+.edu-badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:600;color:var(--green);background:var(--green-pale);padding:0.12rem 0.55rem;border-radius:999px;}
 
-    /* ── RESEARCH THREADS ── */
-    .threads { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .thread { background: var(--white); padding: 1.3rem 1.5rem; transition: background 0.15s; }
-    .thread:hover { background: var(--green-bg); }
-    .thread-num { font-size: 0.68rem; font-weight: 500; color: var(--green-light); letter-spacing: 0.08em; margin-bottom: 0.4rem; }
-    .thread-head { font-size: 0.88rem; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; }
-    .thread-body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
-    .thread-body em { color: var(--green); font-style: normal; font-weight: 400; }
+/* skills */
+.skill-row{display:grid;grid-template-columns:155px 1fr;gap:1rem;padding:0.7rem 0;border-bottom:1px solid var(--border);align-items:baseline;}
+.skill-row:last-child{border-bottom:none;}
+.skill-key{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;font-weight:600;color:var(--text-muted);}
+.skill-val{font-size:0.84rem;font-weight:400;color:var(--text-muted);line-height:1.65;}
 
-    /* ── PUBLICATIONS ── */
-    .pub-group { margin-top: 1.8rem; }
-    .pub-group:first-child { margin-top: 0; }
-    .pub-group-label {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--text-light);
-      margin-bottom: 0.8rem; padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .pub {
-      padding: 1.1rem 0; border-bottom: 1px solid var(--border);
-      display: flex; gap: 1rem; align-items: flex-start;
-    }
-    .pub:last-child { border-bottom: none; }
-    .pub-indicator {
-      width: 3px; border-radius: 2px; flex-shrink: 0; margin-top: 4px;
-      align-self: stretch; min-height: 16px;
-    }
-    .ind-review { background: #f59e0b; }
-    .ind-pub    { background: var(--green-light); }
-    .ind-prep   { background: var(--border); }
-    .pub-content { flex: 1; }
-    .pub-title { font-size: 0.9rem; font-weight: 400; color: var(--text); line-height: 1.5; margin-bottom: 0.3rem; }
-    .pub-authors { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; line-height: 1.5; }
-    .pub-authors strong { color: var(--text); font-weight: 500; }
-    .pub-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
-    .pub-venue { font-size: 0.77rem; color: var(--text-light); }
-    .badge {
-      font-size: 0.68rem; font-weight: 500; padding: 0.1rem 0.5rem;
-      border-radius: 999px; letter-spacing: 0.03em;
-    }
-    .badge-review { background: #fef3c7; color: #92400e; }
-    .badge-pub    { background: var(--green-pale); color: var(--green); }
-    .badge-prep   { background: #f3f4f6; color: var(--text-light); }
+footer{padding:2.5rem 0;text-align:center;}
+.footer-txt{font-size:0.76rem;color:var(--text-light);}
+.footer-txt a{color:var(--text-light);text-decoration:none;}
+.footer-txt a:hover{color:var(--green);}
 
-    /* ── EXPERIENCE ── */
-    .exp-item { padding: 1.2rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; }
-    .exp-item:last-child { border-bottom: none; }
-    .exp-org { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.15rem; }
-    .exp-role { font-size: 0.82rem; color: var(--green); font-weight: 400; margin-bottom: 0.4rem; }
-    .exp-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
-    .exp-right { text-align: right; flex-shrink: 0; }
-    .exp-date { font-size: 0.75rem; color: var(--text-light); white-space: nowrap; }
-    .exp-loc  { font-size: 0.73rem; color: var(--text-light); margin-top: 0.1rem; }
+@keyframes fadeup{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
-    /* ── EDU ── */
-    .edu-item { padding: 1.1rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 1rem; }
-    .edu-item:last-child { border-bottom: none; }
-    .edu-school { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.15rem; }
-    .edu-degree { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.2rem; }
-    .edu-badge { display: inline-block; font-size: 0.72rem; color: var(--green); background: var(--green-pale); padding: 0.1rem 0.5rem; border-radius: 999px; font-weight: 500; }
-
-    /* ── SKILLS ── */
-    .skill-row { display: grid; grid-template-columns: 150px 1fr; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
-    .skill-row:last-child { border-bottom: none; }
-    .skill-key { font-size: 0.78rem; font-weight: 500; color: var(--text-muted); }
-    .skill-val { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
-
-    /* ── FOOTER ── */
-    footer { padding: 2.5rem 0; text-align: center; }
-    .footer-txt { font-size: 0.75rem; color: var(--text-light); }
-    .footer-txt a { color: var(--text-light); text-decoration: none; }
-    .footer-txt a:hover { color: var(--green); }
-
-    @keyframes fadeup {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 0 2.5rem; }
-      .avatar { width: 80px; height: 80px; font-size: 2rem; }
-      .threads { grid-template-columns: 1fr; }
-      .pub { flex-direction: column; gap: 0.5rem; }
-      .exp-item { grid-template-columns: 1fr; }
-      .exp-right { text-align: left; }
-      .edu-item { grid-template-columns: 1fr; }
-      .skill-row { grid-template-columns: 1fr; gap: 0.2rem; }
-      .nav-links { display: none; }
-    }
-  </style>
+@media(max-width:600px){
+  .hero{grid-template-columns:1fr;gap:1.5rem;padding:3rem 0 2.5rem;}
+  .avatar{width:80px;height:80px;font-size:2rem;}
+  .threads{grid-template-columns:1fr;}
+  .pub{flex-direction:column;gap:0.5rem;}
+  .exp-item{grid-template-columns:1fr;}
+  .exp-right{text-align:left;}
+  .edu-item{grid-template-columns:1fr;}
+  .skill-row{grid-template-columns:1fr;gap:0.2rem;}
+  .nav-links{display:none;}
+  .proj-header{flex-direction:column;}
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="#">Hao Wu</a>
@@ -239,6 +151,7 @@
         <li><a href="#research" class="en">Research</a><a href="#research" class="zh">研究</a></li>
         <li><a href="#publications" class="en">Publications</a><a href="#publications" class="zh">论文</a></li>
         <li><a href="#experience" class="en">Experience</a><a href="#experience" class="zh">经历</a></li>
+        <li><a href="#projects" class="en">Projects</a><a href="#projects" class="zh">项目</a></li>
         <li><a href="#education" class="en">Education</a><a href="#education" class="zh">教育</a></li>
       </ul>
       <button class="lang-btn" id="langBtn" onclick="toggleLang()">中文</button>
@@ -248,349 +161,282 @@
 
 <div class="container">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div>
-      <h1 class="hero-name en">Hao <em>(Edison)</em> Wu</h1>
-      <h1 class="hero-name zh">吴浩</h1>
-      <p class="hero-title en">Undergraduate Researcher · University of Wisconsin–Madison · B.S. Data Science & Information Science · GPA 4.0/4.0</p>
-      <p class="hero-title zh">本科科研 · 威斯康星大学麦迪逊分校 · 数据科学与信息科学 · GPA 4.0/4.0</p>
-      <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — when and why should a model commit to its evidence, and how do we verify that it does? My work spans RAG robustness and grounded 3D medical report generation, with two papers under review at SIGIR '26 and ACM MM '26.</p>
-      <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——模型何时应对其引用的证据负责，以及我们如何验证这一点？研究涵盖RAG鲁棒性与有依据的3D医学报告生成，目前有两篇论文在SIGIR '26与ACM MM '26审稿中。</p>
-      <div class="hero-links">
-        <a class="link-chip" href="mailto:hwu522@wisc.edu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-          hwu522@wisc.edu
-        </a>
-        <a class="link-chip" href="https://github.com/haowu0916edisonwu" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          GitHub
-        </a>
-        <a class="link-chip" href="https://www.linkedin.com/in/hao-edison-wu-33a884324/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a class="link-chip" href="Hao_Wu_CV.pdf" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-          CV
-        </a>
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1 class="hero-name en">Hao <em>(Edison)</em> Wu</h1>
+    <h1 class="hero-name zh">吴昊</h1>
+    <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; GPA 4.0/4.0</p>
+    <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; GPA 4.0/4.0</p>
+    <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — when and why should a model commit to its evidence, and how do we verify that it does? My work spans RAG robustness and grounded 3D medical report generation, with two papers under review at SIGIR '26 and ACM MM '26.</p>
+    <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——模型何时应对其引用的证据负责，以及我们如何验证？研究涵盖RAG鲁棒性与有依据的3D医学报告生成，目前两篇论文在SIGIR '26与ACM MM '26审稿中。</p>
+    <div class="hero-links">
+      <a class="link-chip" href="mailto:hwu522@wisc.edu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        hwu522@wisc.edu
+      </a>
+      <a class="link-chip" href="https://github.com/haowu0916edisonwu" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a class="link-chip" href="https://www.linkedin.com/in/hao-edison-wu-33a884324/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a class="link-chip" href="Hao_Wu_CV.pdf" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        CV
+      </a>
+    </div>
+  </div>
+  <div class="avatar">H</div>
+</div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Research</h2><h2 class="sec-title zh">研究方向</h2></div>
+  <div class="threads">
+    <div class="thread">
+      <div class="thread-num en">01 · RAG ROBUSTNESS</div><div class="thread-num zh">01 · RAG鲁棒性</div>
+      <div class="thread-head en">Confidence-Based Circuit Breakers</div><div class="thread-head zh">基于置信度的电路断路器</div>
+      <p class="thread-body en">Token-level confidence gain as a training-free signal for detecting toxic retrieval and switching generation modes. → <em>GOING, SIGIR '26</em></p>
+      <p class="thread-body zh">以token级置信度增益作为免训练信号，检测有害检索并切换生成模式。→ <em>GOING, SIGIR '26</em></p>
+    </div>
+    <div class="thread">
+      <div class="thread-num en">02 · GROUNDED GENERATION</div><div class="thread-num zh">02 · 有依据的生成</div>
+      <div class="thread-head en">Verifiable 3D Medical Reporting</div><div class="thread-head zh">可验证3D医学报告生成</div>
+      <p class="thread-body en">Every generated sentence must cite the exact spatial tokens it draws from — evidence commitment by construction. → <em>ProveTok, ACM MM '26</em></p>
+      <p class="thread-body zh">每条生成句子须引用其所依赖的空间token，从设计层面保障证据承诺。→ <em>ProveTok, ACM MM '26</em></p>
+    </div>
+    <div class="thread">
+      <div class="thread-num en">03 · QUANTITATIVE FINANCE</div><div class="thread-num zh">03 · 量化金融</div>
+      <div class="thread-head en">Deep Learning for Markets</div><div class="thread-head zh">深度学习与金融市场</div>
+      <p class="thread-body en">GAN/GRU-CNN architectures for stock prediction; ESG-driven bond issuance forecasting with XGBoost and LightGBM.</p>
+      <p class="thread-body zh">GAN/GRU-CNN架构用于股价预测；基于XGBoost与LightGBM的ESG债券发行预测。</p>
+    </div>
+    <div class="thread">
+      <div class="thread-num en">04 · AI FOR COMPLEX SYSTEMS</div><div class="thread-num zh">04 · 复杂系统AI</div>
+      <div class="thread-head en">Spatial Reasoning & Decision-Making</div><div class="thread-head zh">空间推理与决策</div>
+      <p class="thread-body en">Extending grounding techniques to structured, data-rich environments — urban mobility, transportation, and spatial planning.</p>
+      <p class="thread-body zh">将定位技术延伸至结构化数据密集型环境，包括城市出行、交通与空间规划。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Publications &amp; Manuscripts</h2><h2 class="sec-title zh">论文与手稿</h2></div>
+
+  <div class="pub-group">
+    <div class="pub-group-label en">Under Review</div><div class="pub-group-label zh">审稿中</div>
+    <div class="pub">
+      <div class="pub-indicator ind-review"></div>
+      <div class="pub-content">
+        <div class="pub-title en">ProveTok: Verifiable 3D CT Report Generation with Token-Level Evidence Grounding</div>
+        <div class="pub-title zh">ProveTok：基于Token级证据定位的可验证3D CT报告生成</div>
+        <div class="pub-authors en">Tianyi Chen*, <strong>Hao Wu*</strong>, TianMing Sha, Sipeng Chen, Junnan Li, Hang Zhou, Xiao Luo <span style="color:#9ca3af;font-size:.78em">— *Co-first Authors</span></div>
+        <div class="pub-authors zh">陈天一*, <strong>吴昊*</strong>, 沙天明, 陈思鹏, 李俊男, 周航, 罗潇 <span style="color:#9ca3af;font-size:.78em">— *共同第一作者</span></div>
+        <div class="pub-meta">
+          <span class="pub-venue">ACM Multimedia 2026 · Submission #4550 · Mar. 2026</span>
+          <span class="badge badge-review en">Under Review</span><span class="badge badge-review zh">审稿中</span>
+        </div>
       </div>
     </div>
-    <div class="avatar">H</div>
+    <div class="pub">
+      <div class="pub-indicator ind-review"></div>
+      <div class="pub-content">
+        <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
+        <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
+        <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
+        <div class="pub-authors zh"><strong>吴昊</strong>, 周航, 罗潇</div>
+        <div class="pub-meta">
+          <span class="pub-venue">ACM SIGIR 2026 Short Papers · Submission #323 · Feb. 2026</span>
+          <span class="badge badge-review en">Under Review</span><span class="badge badge-review zh">审稿中</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="sec-header">
-      <div class="sec-dot"></div>
-      <h2 class="sec-title en">Research</h2>
-      <h2 class="sec-title zh">研究方向</h2>
-    </div>
-    <div class="threads">
-      <div class="thread">
-        <div class="thread-num en">01 · RAG ROBUSTNESS</div>
-        <div class="thread-num zh">01 · RAG鲁棒性</div>
-        <div class="thread-head en">Confidence-Based Circuit Breakers</div>
-        <div class="thread-head zh">基于置信度的电路断路器</div>
-        <p class="thread-body en">Token-level confidence gain as a training-free signal for detecting toxic retrieval and switching generation modes. → <em>GOING, SIGIR '26</em></p>
-        <p class="thread-body zh">以token级置信度增益作为免训练信号，检测有害检索并切换生成模式。→ <em>GOING, SIGIR '26</em></p>
-      </div>
-      <div class="thread">
-        <div class="thread-num en">02 · GROUNDED GENERATION</div>
-        <div class="thread-num zh">02 · 有依据的生成</div>
-        <div class="thread-head en">Verifiable 3D Medical Reporting</div>
-        <div class="thread-head zh">可验证3D医学报告生成</div>
-        <p class="thread-body en">Every generated sentence must cite the exact spatial tokens it draws from — evidence commitment by construction. → <em>ProveTok, ACM MM '26</em></p>
-        <p class="thread-body zh">每条生成句子须引用其所依赖的空间token，从设计层面保障证据承诺。→ <em>ProveTok, ACM MM '26</em></p>
-      </div>
-      <div class="thread">
-        <div class="thread-num en">03 · QUANTITATIVE FINANCE</div>
-        <div class="thread-num zh">03 · 量化金融</div>
-        <div class="thread-head en">Deep Learning for Markets</div>
-        <div class="thread-head zh">深度学习与金融市场</div>
-        <p class="thread-body en">GAN/GRU-CNN architectures for stock prediction; ESG-driven bond issuance forecasting with XGBoost and LightGBM.</p>
-        <p class="thread-body zh">GAN/GRU-CNN架构用于股价预测；基于XGBoost与LightGBM的ESG债券发行预测。</p>
-      </div>
-      <div class="thread">
-        <div class="thread-num en">04 · AI FOR COMPLEX SYSTEMS</div>
-        <div class="thread-num zh">04 · 复杂系统AI</div>
-        <div class="thread-head en">Spatial Reasoning & Decision-Making</div>
-        <div class="thread-head zh">空间推理与决策</div>
-        <p class="thread-body en">Extending grounding techniques to structured, data-rich environments — urban mobility, transportation, and spatial planning.</p>
-        <p class="thread-body zh">将定位技术延伸至结构化数据密集型环境，包括城市出行、交通与空间规划。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <div class="sec-header">
-      <div class="sec-dot"></div>
-      <h2 class="sec-title en">Publications & Manuscripts</h2>
-      <h2 class="sec-title zh">论文与手稿</h2>
-    </div>
-
-    <div class="pub-group">
-      <div class="pub-group-label en">Under Review</div>
-      <div class="pub-group-label zh">审稿中</div>
-
-      <div class="pub">
-        <div class="pub-indicator ind-review"></div>
-        <div class="pub-content">
-          <div class="pub-title en">ProveTok: Verifiable 3D CT Report Generation with Token-Level Evidence Grounding</div>
-          <div class="pub-title zh">ProveTok：基于Token级证据定位的可验证3D CT报告生成</div>
-          <div class="pub-authors en">Tianyi Chen*, <strong>Hao Wu*</strong>, TianMing Sha, Sipeng Chen, Junnan Li, Hang Zhou, Xiao Luo <span style="color:#9ca3af;font-size:0.78em">— *Co-first Authors</span></div>
-          <div class="pub-authors zh">陈天一*, <strong>吴浩*</strong>, 沙天明, 陈思鹏, 李俊男, 周航, 罗潇 <span style="color:#9ca3af;font-size:0.78em">— *共同第一作者</span></div>
-          <div class="pub-meta">
-            <span class="pub-venue">ACM Multimedia 2026 · Submission #4550 · Mar. 2026</span>
-            <span class="badge badge-review en">Under Review</span>
-            <span class="badge badge-review zh">审稿中</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="pub-indicator ind-review"></div>
-        <div class="pub-content">
-          <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
-          <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
-          <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
-          <div class="pub-authors zh"><strong>吴浩</strong>, 周航, 罗潇</div>
-          <div class="pub-meta">
-            <span class="pub-venue">ACM SIGIR 2026 Short Papers · Submission #323 · Feb. 2026</span>
-            <span class="badge badge-review en">Under Review</span>
-            <span class="badge badge-review zh">审稿中</span>
-          </div>
+  <div class="pub-group">
+    <div class="pub-group-label en">Published</div><div class="pub-group-label zh">已发表</div>
+    <div class="pub">
+      <div class="pub-indicator ind-pub"></div>
+      <div class="pub-content">
+        <div class="pub-title en">Forecast of Bond Issuance Based on ESG Score</div>
+        <div class="pub-title zh">基于ESG评分的债券发行预测</div>
+        <div class="pub-authors en"><strong>Hao Wu</strong> et al. <span style="color:#9ca3af;font-size:.78em">— Co-first Author</span></div>
+        <div class="pub-authors zh"><strong>吴昊</strong> 等 <span style="color:#9ca3af;font-size:.78em">— 共同第一作者</span></div>
+        <div class="pub-meta">
+          <span class="pub-venue">Academic Journal of Mathematical Sciences · 2023 · 2,400+ views</span>
+          <span class="badge badge-pub en">Published</span><span class="badge badge-pub zh">已发表</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="pub-group">
-      <div class="pub-group-label en">Published</div>
-      <div class="pub-group-label zh">已发表</div>
-      <div class="pub">
-        <div class="pub-indicator ind-pub"></div>
-        <div class="pub-content">
-          <div class="pub-title en">Forecast of Bond Issuance Based on ESG Score</div>
-          <div class="pub-title zh">基于ESG评分的债券发行预测</div>
-          <div class="pub-authors en"><strong>Hao Wu</strong> et al. <span style="color:#9ca3af;font-size:0.78em">— Co-first Author</span></div>
-          <div class="pub-authors zh"><strong>吴浩</strong> 等 <span style="color:#9ca3af;font-size:0.78em">— 共同第一作者</span></div>
-          <div class="pub-meta">
-            <span class="pub-venue">Academic Journal of Mathematical Sciences, Francis Academic Press · 2023 · 2,400+ views</span>
-            <span class="badge badge-pub en">Published</span>
-            <span class="badge badge-pub zh">已发表</span>
-          </div>
+  <div class="pub-group">
+    <div class="pub-group-label en">In Preparation</div><div class="pub-group-label zh">准备中</div>
+    <div class="pub">
+      <div class="pub-indicator ind-prep"></div>
+      <div class="pub-content">
+        <div class="pub-title en">GAN-Based Stock Price Prediction Using a GRU-CNN Architecture</div>
+        <div class="pub-title zh">基于GRU-CNN架构的GAN股价预测</div>
+        <div class="pub-authors en"><strong>Hao Wu</strong> <span style="color:#9ca3af;font-size:.78em">— First Author</span></div>
+        <div class="pub-authors zh"><strong>吴昊</strong> <span style="color:#9ca3af;font-size:.78em">— 第一作者</span></div>
+        <div class="pub-meta">
+          <span class="pub-venue">Manuscript in preparation · 2023</span>
+          <span class="badge badge-prep en">In Prep</span><span class="badge badge-prep zh">准备中</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="pub-group">
-      <div class="pub-group-label en">In Preparation</div>
-      <div class="pub-group-label zh">准备中</div>
-      <div class="pub">
-        <div class="pub-indicator ind-prep"></div>
-        <div class="pub-content">
-          <div class="pub-title en">GAN-Based Stock Price Prediction Using a GRU-CNN Architecture</div>
-          <div class="pub-title zh">基于GRU-CNN架构的GAN股价预测</div>
-          <div class="pub-authors en"><strong>Hao Wu</strong> <span style="color:#9ca3af;font-size:0.78em">— First Author</span></div>
-          <div class="pub-authors zh"><strong>吴浩</strong> <span style="color:#9ca3af;font-size:0.78em">— 第一作者</span></div>
-          <div class="pub-meta">
-            <span class="pub-venue">Manuscript in preparation · 2023</span>
-            <span class="badge badge-prep en">In Prep</span>
-            <span class="badge badge-prep zh">准备中</span>
-          </div>
-        </div>
-      </div>
-      <div class="pub">
-        <div class="pub-indicator ind-prep"></div>
-        <div class="pub-content">
-          <div class="pub-title en">Task-Adaptive Inference Strategy for RAG Robustness: Relevance Guardrail and Inference-Time Slicer</div>
-          <div class="pub-title zh">面向RAG鲁棒性的任务自适应推理策略：相关性护栏与推理时切片器</div>
-          <div class="pub-authors en"><strong>Hao Wu</strong> et al.</div>
-          <div class="pub-authors zh"><strong>吴浩</strong> 等</div>
-          <div class="pub-meta">
-            <span class="pub-venue">Ongoing · UW–Madison Department of Statistics · 2023–Present</span>
-            <span class="badge badge-prep en">Ongoing</span>
-            <span class="badge badge-prep zh">进行中</span>
-          </div>
-        </div>
-      </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Experience</h2><h2 class="sec-title zh">经历</h2></div>
+
+  <div class="exp-item">
+    <div>
+      <div class="exp-org en">UW–Madison, Department of Statistics</div><div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
+      <div class="exp-role en">UNDERGRADUATE RESEARCH ASSISTANT &nbsp;·&nbsp; Advisor: <a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Prof. Xiao Luo</a></div>
+      <div class="exp-role zh">本科科研助理 &nbsp;·&nbsp; 导师：<a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">罗潇 教授</a></div>
+      <p class="exp-desc en">RAG robustness and hallucination mitigation research. Two top-venue submissions: SIGIR '26 (1st author) and ACM MM '26 (co-first author). Focus on training-free confidence-based filtering and token-level evidence commitment for grounded generation.</p>
+      <p class="exp-desc zh">RAG鲁棒性与幻觉缓解研究。两篇顶会投稿：SIGIR '26（第一作者）与ACM MM '26（共同第一作者）。核心：免训练置信度过滤与token级证据承诺。</p>
+      <div class="exp-tags"><span class="exp-tag">PyTorch</span><span class="exp-tag">Hugging Face</span><span class="exp-tag">Llama-3-8B</span><span class="exp-tag">RAG</span><span class="exp-tag">ColBERTv2</span></div>
     </div>
-  </section>
+    <div class="exp-right"><div class="exp-date">Sep. 2023 – Present</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
+  </div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="sec-header">
-      <div class="sec-dot"></div>
-      <h2 class="sec-title en">Experience</h2>
-      <h2 class="sec-title zh">经历</h2>
+  <div class="exp-item">
+    <div>
+      <div class="exp-org en">Guo Dao Asset Management Co., Ltd.</div><div class="exp-org zh">国道资产管理有限公司</div>
+      <div class="exp-role en">DATA ENGINEERING INTERN — QUANTITATIVE TRADING</div><div class="exp-role zh">数据工程实习生（量化交易）</div>
+      <p class="exp-desc en">Built high-throughput real-time data pipelines for HFT with Python & SQL. Managed a 10M RMB simulation system validating ML-based trend-tracking strategies under volatile market conditions.</p>
+      <p class="exp-desc zh">用Python & SQL构建高吞吐实时数据管道用于高频交易；管理千万规模仿真系统，验证ML趋势跟踪策略。</p>
+      <div class="exp-tags"><span class="exp-tag">Python</span><span class="exp-tag">SQL</span><span class="exp-tag">HFT</span><span class="exp-tag">Backtesting</span><span class="exp-tag">QMT</span></div>
     </div>
+    <div class="exp-right"><div class="exp-date">Jun. – Aug. 2025</div><div class="exp-loc en">Shanghai</div><div class="exp-loc zh">上海</div></div>
+  </div>
 
-    <div class="exp-item">
+  <div class="exp-item">
+    <div>
+      <div class="exp-org en">Dong Hai Securities Co., Ltd.</div><div class="exp-org zh">东海证券有限责任公司</div>
+      <div class="exp-role en">DATA ANALYST INTERN</div><div class="exp-role zh">数据分析实习生</div>
+      <p class="exp-desc en">Automated preprocessing pipelines for 500+ companies with Pandas; scraped and structured financial logs from Wind/Flush databases.</p>
+      <p class="exp-desc zh">用Pandas为500余家公司自动化数据预处理；从Wind/Flush抓取并结构化金融日志。</p>
+      <div class="exp-tags"><span class="exp-tag">Python</span><span class="exp-tag">Pandas</span><span class="exp-tag">Wind/Flush</span></div>
+    </div>
+    <div class="exp-right"><div class="exp-date">Jul. – Aug. 2023</div><div class="exp-loc en">Changzhou</div><div class="exp-loc zh">常州</div></div>
+  </div>
+
+  <div class="exp-item">
+    <div>
+      <div class="exp-org en">UW–Madison, Department of Statistics</div><div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
+      <div class="exp-role en">DATA SCIENCE PEER MENTOR</div><div class="exp-role zh">数据科学朋辈导师</div>
+      <p class="exp-desc en">Weekly office hours mentoring undergraduates in ML, statistics, and Python/R.</p>
+      <p class="exp-desc zh">每周答疑，辅导本科生机器学习、统计学与Python/R。</p>
+    </div>
+    <div class="exp-right"><div class="exp-date">Jul. 2025 – Present</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Projects</h2><h2 class="sec-title zh">项目</h2></div>
+
+  <div class="proj-card">
+    <div class="proj-header">
       <div>
-        <div class="exp-org en">UW–Madison, Department of Statistics</div>
-        <div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
-        <div class="exp-role en">Undergraduate Research Assistant</div>
-        <div class="exp-role zh">本科科研助理</div>
-        <div class="exp-desc en">RAG robustness and hallucination mitigation research. Two top-venue submissions: SIGIR '26 (1st author) and ACM MM '26 (co-first author). Focus on training-free confidence-based filtering and token-level evidence commitment for grounded generation.</div>
-        <div class="exp-desc zh">RAG鲁棒性与幻觉缓解研究。两篇顶会投稿：SIGIR '26（第一作者）与ACM MM '26（共同第一作者）。核心：免训练置信度过滤与token级证据承诺。</div>
+        <div class="proj-name en">MadNote — AI-Powered Academic Discovery Platform</div>
+        <div class="proj-name zh">MadNote — AI驱动的学术论文发现平台</div>
       </div>
-      <div class="exp-right">
-        <div class="exp-date">Sep. 2023 – Present</div>
-        <div class="exp-loc en">Madison, WI</div>
-        <div class="exp-loc zh">麦迪逊</div>
-      </div>
+      <span class="proj-badge">MadData 2026 Hackathon</span>
     </div>
+    <div class="proj-role en">BACKEND &amp; AI DEVELOPER · dotData @ UW–Madison · Feb. 2026</div>
+    <div class="proj-role zh">后端与AI开发 · dotData @ UW–Madison · 2026年2月</div>
+    <p class="proj-desc en">
+      MadNote transforms research discovery through a fully backend-driven AI pipeline. Built a <strong>FastAPI</strong> service unifying abstracts, categories, keywords, and interaction metadata. Engineered a multi-round <strong>"Discover For You"</strong> bubble onboarding flow — users progressively select topics, seed keywords, and expanded keywords — feeding into a personalized weighted ranking engine. Integrated <strong>Mistral-7B + RAG</strong> for the "Ask Paper" chat API, enabling per-paper Q&amp;A with robust fallback handling. Designed a <strong>BERT</strong>-powered keyword extraction layer driving a knowledge graph similarity navigator. Deployed on Vercel (frontend) + Render (backend) with cross-origin auth and cookie management.
+    </p>
+    <p class="proj-desc zh">
+      MadNote通过完全后端驱动的AI流程重塑论文发现体验。构建<strong>FastAPI</strong>服务，统一加载摘要、分类、关键词及交互元数据。设计多轮<strong>"Discover For You"</strong>气泡引导——用户逐步选择话题、种子关键词与扩展关键词，驱动个性化加权排序。集成<strong>Mistral-7B + RAG</strong>实现"Ask Paper"论文问答，具备完善降级处理。<strong>BERT</strong>关键词提取层驱动知识图谱相似度导航。前端Vercel + 后端Render部署，处理跨域认证与Cookie管理。
+    </p>
+    <div class="proj-formula en">Ranking: <span>score = 0.45 × topic_match + 0.35 × keyword_overlap + 0.15 × freshness + 0.05 × popularity</span></div>
+    <div class="proj-formula zh">排序公式：<span>score = 0.45 × 话题匹配 + 0.35 × 关键词重叠 + 0.15 × 新鲜度 + 0.05 × 热度</span></div>
+    <div class="exp-tags" style="margin-bottom:0.8rem"><span class="exp-tag">FastAPI</span><span class="exp-tag">Mistral-7B</span><span class="exp-tag">RAG</span><span class="exp-tag">BERT</span><span class="exp-tag">React + Vite</span><span class="exp-tag">Vercel</span><span class="exp-tag">Python</span></div>
+    <div class="proj-links">
+      <a class="proj-link" href="https://mad-data-2026-mad-note-1krjmgsy6-uikamisumis-projects.vercel.app/#/" target="_blank">↗ Live Demo</a>
+      <a class="proj-link" href="https://github.com/UikaMisumi/-MadData_2026-MadNote" target="_blank">⌥ GitHub</a>
+      <a class="proj-link" href="https://devpost.com/software/maddata_2026-madnote" target="_blank">⬡ Devpost</a>
+    </div>
+  </div>
 
-    <div class="exp-item">
+  <div class="proj-card">
+    <div class="proj-header">
       <div>
-        <div class="exp-org en">Guo Dao Asset Management Co., Ltd.</div>
-        <div class="exp-org zh">国道资产管理有限公司</div>
-        <div class="exp-role en">Data Engineering Intern — Quantitative Trading</div>
-        <div class="exp-role zh">数据工程实习生（量化交易）</div>
-        <div class="exp-desc en">Built high-throughput real-time data pipelines for HFT; managed a 10M RMB simulation system validating ML-based trend-tracking strategies.</div>
-        <div class="exp-desc zh">构建高吞吐实时数据管道用于高频交易；管理千万规模仿真系统验证ML趋势跟踪策略。</div>
+        <div class="proj-name en">ESG Bond Issuance Forecasting</div>
+        <div class="proj-name zh">ESG债券发行预测研究</div>
       </div>
-      <div class="exp-right">
-        <div class="exp-date">Jun. – Aug. 2025</div>
-        <div class="exp-loc en">Shanghai</div>
-        <div class="exp-loc zh">上海</div>
-      </div>
+      <span class="proj-badge">Published · 2,400+ views</span>
     </div>
+    <div class="proj-role en">RESEARCHER &amp; CO-FIRST AUTHOR · Mar. – May 2023</div>
+    <div class="proj-role zh">研究员 &amp; 共同第一作者 · 2023年3月–5月</div>
+    <p class="proj-desc en">Established an ML framework assessing how ESG scores influence bond issuance. Benchmarked XGBoost, LightGBM, and KNN on high-dimensional financial features; evaluated with cross-validation, RMSE, MAE, and R².</p>
+    <p class="proj-desc zh">建立ML框架评估ESG评分对债券发行的影响。对高维金融特征基准测试XGBoost、LightGBM和KNN；通过交叉验证、RMSE、MAE和R²评估。</p>
+    <div class="exp-tags"><span class="exp-tag">XGBoost</span><span class="exp-tag">LightGBM</span><span class="exp-tag">KNN</span><span class="exp-tag">Cross-validation</span><span class="exp-tag">ESG</span></div>
+  </div>
+</section>
 
-    <div class="exp-item">
-      <div>
-        <div class="exp-org en">MadData 2026 Hackathon — MadNote AI</div>
-        <div class="exp-org zh">MadData 2026 黑客马拉松 — MadNote AI</div>
-        <div class="exp-role en">Backend & AI Developer · dotData @ UW–Madison</div>
-        <div class="exp-role zh">后端与AI开发 · dotData @ UW–Madison</div>
-        <div class="exp-desc en">FastAPI + Mistral-7B + RAG academic paper Q&A chatbot; BERT keyword extraction for knowledge graph recommendations.</div>
-        <div class="exp-desc zh">FastAPI + Mistral-7B + RAG学术论文问答系统；BERT关键词提取驱动知识图谱推荐。</div>
-      </div>
-      <div class="exp-right">
-        <div class="exp-date">Feb. 2026</div>
-        <div class="exp-loc en">Madison, WI</div>
-        <div class="exp-loc zh">麦迪逊</div>
-      </div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Education</h2><h2 class="sec-title zh">教育背景</h2></div>
+  <div class="edu-item">
+    <div>
+      <div class="edu-school en">University of Wisconsin–Madison</div><div class="edu-school zh">威斯康星大学麦迪逊分校</div>
+      <div class="edu-degree en">B.S. Data Science &amp; Information Science (Double Major)</div><div class="edu-degree zh">数据科学与信息科学双专业理学学士</div>
+      <span class="edu-badge en">GPA 4.0/4.0 · L&amp;S Dean's List</span><span class="edu-badge zh">GPA 4.0/4.0 · 院长名单</span>
     </div>
+    <div class="exp-right"><div class="exp-date">2022 – Dec. 2026</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
+  </div>
+  <div class="edu-item">
+    <div>
+      <div class="edu-school en">Xi'an Jiao Tong–Liverpool University (XJTLU)</div><div class="edu-school zh">西交利物浦大学</div>
+      <div class="edu-degree en">Year 1–2, Data Science · Transferred to UW–Madison 2024</div><div class="edu-degree zh">大一至大二，数据科学 · 2024年转至UW–Madison</div>
+      <span class="edu-badge en">University Excellence Award</span><span class="edu-badge zh">校级优秀奖</span>
+    </div>
+    <div class="exp-right"><div class="exp-date">2022 – 2024</div><div class="exp-loc en">Suzhou, China</div><div class="exp-loc zh">苏州</div></div>
+  </div>
+</section>
 
-    <div class="exp-item">
-      <div>
-        <div class="exp-org en">Dong Hai Securities Co., Ltd.</div>
-        <div class="exp-org zh">东海证券有限责任公司</div>
-        <div class="exp-role en">Data Analyst Intern</div>
-        <div class="exp-role zh">数据分析实习生</div>
-        <div class="exp-desc en">Automated preprocessing pipelines for 500+ companies with Pandas; scraped financial logs from Wind/Flush databases.</div>
-        <div class="exp-desc zh">用Pandas为500余家公司自动化数据预处理；从Wind/Flush抓取并结构化金融日志。</div>
-      </div>
-      <div class="exp-right">
-        <div class="exp-date">Jul. – Aug. 2023</div>
-        <div class="exp-loc en">Changzhou</div>
-        <div class="exp-loc zh">常州</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div>
-        <div class="exp-org en">UW–Madison, Department of Statistics</div>
-        <div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
-        <div class="exp-role en">Data Science Peer Mentor</div>
-        <div class="exp-role zh">数据科学朋辈导师</div>
-        <div class="exp-desc en">Weekly office hours mentoring undergraduates in ML, statistics, and Python/R.</div>
-        <div class="exp-desc zh">每周答疑，辅导本科生机器学习、统计学与Python/R。</div>
-      </div>
-      <div class="exp-right">
-        <div class="exp-date">Jul. 2025 – Present</div>
-        <div class="exp-loc en">Madison, WI</div>
-        <div class="exp-loc zh">麦迪逊</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="sec-header">
-      <div class="sec-dot"></div>
-      <h2 class="sec-title en">Education</h2>
-      <h2 class="sec-title zh">教育背景</h2>
-    </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-school en">University of Wisconsin–Madison</div>
-        <div class="edu-school zh">威斯康星大学麦迪逊分校</div>
-        <div class="edu-degree en">B.S. Data Science & Information Science (Double Major)</div>
-        <div class="edu-degree zh">数据科学与信息科学双专业理学学士</div>
-        <span class="edu-badge en">GPA 4.0/4.0 · L&S Dean's List</span>
-        <span class="edu-badge zh">GPA 4.0/4.0 · 院长名单</span>
-      </div>
-      <div class="exp-right">
-        <div class="exp-date">2022 – Dec. 2026</div>
-        <div class="exp-loc en">Madison, WI</div>
-        <div class="exp-loc zh">麦迪逊</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-school en">Xi'an Jiao Tong–Liverpool University (XJTLU)</div>
-        <div class="edu-school zh">西交利物浦大学</div>
-        <div class="edu-degree en">Year 1–2, Data Science · Transferred to UW–Madison 2024</div>
-        <div class="edu-degree zh">大一至大二，数据科学 · 2024年转至UW–Madison</div>
-        <span class="edu-badge en">University Excellence Award</span>
-        <span class="edu-badge zh">校级优秀奖</span>
-      </div>
-      <div class="exp-right">
-        <div class="exp-date">2022 – 2024</div>
-        <div class="exp-loc en">Suzhou, China</div>
-        <div class="exp-loc zh">苏州</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" style="border-bottom:none;">
-    <div class="sec-header">
-      <div class="sec-dot"></div>
-      <h2 class="sec-title en">Technical Skills</h2>
-      <h2 class="sec-title zh">技术技能</h2>
-    </div>
-    <div class="skill-row">
-      <span class="skill-key en">Programming</span><span class="skill-key zh">编程语言</span>
-      <span class="skill-val">Python · R · MySQL · MongoDB · MATLAB</span>
-    </div>
-    <div class="skill-row">
-      <span class="skill-key en">ML / Data</span><span class="skill-key zh">机器学习</span>
-      <span class="skill-val">PyTorch · Scikit-learn · Pandas · NumPy · XGBoost · LightGBM · GANs · Spark · HDFS · R/Shiny</span>
-    </div>
-    <div class="skill-row">
-      <span class="skill-key en">LLM Engineering</span><span class="skill-key zh">大模型工程</span>
-      <span class="skill-val">Hugging Face · RAG · FastAPI · Prompt Engineering · Multi-agent · Llama-3 · Mistral · BERT</span>
-    </div>
-    <div class="skill-row">
-      <span class="skill-key en">Finance Tools</span><span class="skill-key zh">金融工具</span>
-      <span class="skill-val">Bloomberg · Wind-Stock-DB · QMT · Financial Modeling · Stock APIs</span>
-    </div>
-    <div class="skill-row">
-      <span class="skill-key en">Languages</span><span class="skill-key zh">语言</span>
-      <span class="skill-val en">English (Fluent) · Mandarin (Native) · Spanish (Elementary)</span>
-      <span class="skill-val zh">英语（流利）· 普通话（母语）· 西班牙语（入门）</span>
-    </div>
-  </section>
+<!-- SKILLS -->
+<section id="skills" style="border-bottom:none;">
+  <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Technical Skills</h2><h2 class="sec-title zh">技术技能</h2></div>
+  <div class="skill-row"><span class="skill-key en">Programming</span><span class="skill-key zh">编程语言</span><span class="skill-val">Python · R · MySQL · MongoDB · MATLAB</span></div>
+  <div class="skill-row"><span class="skill-key en">ML / Data</span><span class="skill-key zh">机器学习</span><span class="skill-val">PyTorch · Scikit-learn · Pandas · NumPy · XGBoost · LightGBM · GANs · Spark · HDFS · R/Shiny</span></div>
+  <div class="skill-row"><span class="skill-key en">LLM Engineering</span><span class="skill-key zh">大模型工程</span><span class="skill-val">Hugging Face · RAG · FastAPI · Prompt Engineering · Multi-agent · Llama-3 · Mistral · BERT</span></div>
+  <div class="skill-row"><span class="skill-key en">Finance Tools</span><span class="skill-key zh">金融工具</span><span class="skill-val">Bloomberg · Wind-Stock-DB · QMT · Financial Modeling · Stock APIs</span></div>
+  <div class="skill-row">
+    <span class="skill-key en">Languages</span><span class="skill-key zh">语言</span>
+    <span class="skill-val en">English (Fluent) · Mandarin (Native) · Spanish (Elementary)</span>
+    <span class="skill-val zh">英语（流利）· 普通话（母语）· 西班牙语（入门）</span>
+  </div>
+</section>
 
 </div>
 
 <footer>
   <div class="container">
     <p class="footer-txt en">© 2026 Hao (Edison) Wu &nbsp;·&nbsp; <a href="mailto:hwu522@wisc.edu">hwu522@wisc.edu</a> &nbsp;·&nbsp; Madison, WI</p>
-    <p class="footer-txt zh">© 2026 吴浩 &nbsp;·&nbsp; <a href="mailto:hwu522@wisc.edu">hwu522@wisc.edu</a> &nbsp;·&nbsp; 威斯康星州麦迪逊</p>
+    <p class="footer-txt zh">© 2026 吴昊 &nbsp;·&nbsp; <a href="mailto:hwu522@wisc.edu">hwu522@wisc.edu</a> &nbsp;·&nbsp; 威斯康星州麦迪逊</p>
   </div>
 </footer>
 
 <script>
-  function toggleLang() {
-    const isZh = document.body.classList.toggle('lang-zh');
-    document.getElementById('langBtn').textContent = isZh ? 'English' : '中文';
-    document.documentElement.lang = isZh ? 'zh' : 'en';
-  }
+function toggleLang(){
+  const isZh=document.body.classList.toggle('lang-zh');
+  document.getElementById('langBtn').textContent=isZh?'English':'中文';
+  document.documentElement.lang=isZh?'zh':'en';
+}
 </script>
 </body>
 </html>
