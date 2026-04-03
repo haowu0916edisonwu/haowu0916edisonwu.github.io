@@ -168,8 +168,8 @@ footer{padding:2.5rem 0;text-align:center;}
     <h1 class="hero-name zh">吴昊</h1>
     <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; GPA 4.0/4.0</p>
     <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; GPA 4.0/4.0</p>
-    <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — when and why should a model commit to its evidence, and how do we verify that it does? My work spans RAG robustness and grounded 3D medical report generation, with two papers under review at SIGIR '26 and ACM MM '26.</p>
-    <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——模型何时应对其引用的证据负责，以及我们如何验证？研究涵盖RAG鲁棒性与有依据的3D医学报告生成，目前两篇论文在SIGIR '26与ACM MM '26审稿中。</p>
+    <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — when and why should a model commit to its evidence, and how do we verify that it does? My work spans RAG robustness and grounded 3D medical report generation, with a paper under review at ACM MM '26 and a manuscript in submission to ACM TIST. My longer-term interest is extending spatial grounding techniques toward embodied AI and autonomous driving.</p>
+    <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——模型何时应对其引用的证据负责，以及我们如何验证？研究涵盖RAG鲁棒性与有依据的3D医学报告生成，目前一篇论文在ACM MM '26审稿中，另一篇正投稿至ACM TIST。长期兴趣方向是将空间定位技术延伸至具身AI与自动驾驶。</p>
     <div class="hero-links">
       <a class="link-chip" href="mailto:hwu522@wisc.edu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
@@ -199,14 +199,14 @@ footer{padding:2.5rem 0;text-align:center;}
     <div class="thread">
       <div class="thread-num en">01 · RAG ROBUSTNESS</div><div class="thread-num zh">01 · RAG鲁棒性</div>
       <div class="thread-head en">Confidence-Based Circuit Breakers</div><div class="thread-head zh">基于置信度的电路断路器</div>
-      <p class="thread-body en">Token-level confidence gain as a training-free signal for detecting toxic retrieval and switching generation modes. → <em>GOING, SIGIR '26</em></p>
-      <p class="thread-body zh">以token级置信度增益作为免训练信号，检测有害检索并切换生成模式。→ <em>GOING, SIGIR '26</em></p>
+      <p class="thread-body en">Token-level confidence gain as a training-free signal for detecting toxic retrieval and switching generation modes. → <em>GOING, ACM TIST (in submission)</em></p>
+      <p class="thread-body zh">以token级置信度增益作为免训练信号，检测有害检索并切换生成模式。→ <em>GOING, ACM TIST（投稿中）</em></p>
     </div>
     <div class="thread">
       <div class="thread-num en">02 · GROUNDED GENERATION</div><div class="thread-num zh">02 · 有依据的生成</div>
       <div class="thread-head en">Verifiable 3D Medical Reporting</div><div class="thread-head zh">可验证3D医学报告生成</div>
-      <p class="thread-body en">Every generated sentence must cite the exact spatial tokens it draws from — evidence commitment by construction. → <em>ProveTok, ACM MM '26</em></p>
-      <p class="thread-body zh">每条生成句子须引用其所依赖的空间token，从设计层面保障证据承诺。→ <em>ProveTok, ACM MM '26</em></p>
+      <p class="thread-body en">Every generated sentence must cite the exact spatial tokens it draws from — evidence commitment by construction. → <em>MARIE, ACM MM '26</em>. This token-gating mechanism is a direct analogue to grounding VLA planning outputs in BEV tokens for autonomous driving and robotic manipulation.</p>
+      <p class="thread-body zh">每条生成句子须引用其所依赖的空间token，从设计层面保障证据承诺。→ <em>MARIE, ACM MM '26</em></p>
     </div>
     <div class="thread">
       <div class="thread-num en">03 · QUANTITATIVE FINANCE</div><div class="thread-num zh">03 · 量化金融</div>
@@ -215,10 +215,10 @@ footer{padding:2.5rem 0;text-align:center;}
       <p class="thread-body zh">GAN/GRU-CNN架构用于股价预测；基于XGBoost与LightGBM的ESG债券发行预测。</p>
     </div>
     <div class="thread">
-      <div class="thread-num en">04 · AI FOR COMPLEX SYSTEMS</div><div class="thread-num zh">04 · 复杂系统AI</div>
-      <div class="thread-head en">Spatial Reasoning & Decision-Making</div><div class="thread-head zh">空间推理与决策</div>
-      <p class="thread-body en">Extending grounding techniques to structured, data-rich environments — urban mobility, transportation, and spatial planning.</p>
-      <p class="thread-body zh">将定位技术延伸至结构化数据密集型环境，包括城市出行、交通与空间规划。</p>
+      <div class="thread-num en">04 · EMBODIED AI & AUTONOMOUS SYSTEMS</div><div class="thread-num zh">04 · 具身AI与自动驾驶</div>
+      <div class="thread-head en">Spatial Grounding → VLA & Embodied AI</div><div class="thread-head zh">空间定位 → VLA与具身智能</div>
+      <p class="thread-body en">Extending spatial token grounding toward embodied AI and autonomous driving — where VLA models must anchor planning outputs to explicit perceptual evidence rather than permissive global context, directly analogous to MARIE's evidence commitment mechanism.</p>
+      <p class="thread-body zh">将空间token定位技术延伸至具身AI与自动驾驶——VLA模型的规划输出须锚定于明确的感知证据，与MARIE的证据承诺机制直接对应。</p>
     </div>
   </div>
 </section>
@@ -232,25 +232,12 @@ footer{padding:2.5rem 0;text-align:center;}
     <div class="pub">
       <div class="pub-indicator ind-review"></div>
       <div class="pub-content">
-        <div class="pub-title en">ProveTok: Verifiable 3D CT Report Generation with Token-Level Evidence Grounding</div>
-        <div class="pub-title zh">ProveTok：基于Token级证据定位的可验证3D CT报告生成</div>
+        <div class="pub-title en">MARIE: Multimodal Routing with Evidence Token Grounding for 3D CT Report Generation</div>
+        <div class="pub-title zh">MARIE：基于多模态路由与证据Token定位的3D CT报告生成</div>
         <div class="pub-authors en">Tianyi Chen*, <strong>Hao Wu*</strong>, TianMing Sha, Sipeng Chen, Junnan Li, Hang Zhou, Xiao Luo <span style="color:#9ca3af;font-size:.78em">— *Co-first Authors</span></div>
         <div class="pub-authors zh">陈天一*, <strong>吴昊*</strong>, 沙天明, 陈思鹏, 李俊男, 周航, 罗潇 <span style="color:#9ca3af;font-size:.78em">— *共同第一作者</span></div>
         <div class="pub-meta">
           <span class="pub-venue">ACM Multimedia 2026 · Submission #4550 · Mar. 2026</span>
-          <span class="badge badge-review en">Under Review</span><span class="badge badge-review zh">审稿中</span>
-        </div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-indicator ind-review"></div>
-      <div class="pub-content">
-        <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
-        <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
-        <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
-        <div class="pub-authors zh"><strong>吴昊</strong>, 周航, 罗潇</div>
-        <div class="pub-meta">
-          <span class="pub-venue">ACM SIGIR 2026 Short Papers · Submission #323 · Feb. 2026</span>
           <span class="badge badge-review en">Under Review</span><span class="badge badge-review zh">审稿中</span>
         </div>
       </div>
@@ -275,7 +262,20 @@ footer{padding:2.5rem 0;text-align:center;}
   </div>
 
   <div class="pub-group">
-    <div class="pub-group-label en">In Preparation</div><div class="pub-group-label zh">准备中</div>
+    <div class="pub-group-label en">In Submission / Preparation</div><div class="pub-group-label zh">投稿/准备中</div>
+    <div class="pub">
+      <div class="pub-indicator ind-prep"></div>
+      <div class="pub-content">
+        <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
+        <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
+        <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
+        <div class="pub-authors zh"><strong>吴昊</strong>, 周航, 罗潇</div>
+        <div class="pub-meta">
+          <span class="pub-venue">ACM Transactions on Intelligent Systems and Technology (TIST) · Research Note · in submission · 2026</span>
+          <span class="badge badge-prep en">In Submission</span><span class="badge badge-prep zh">投稿中</span>
+        </div>
+      </div>
+    </div>
     <div class="pub">
       <div class="pub-indicator ind-prep"></div>
       <div class="pub-content">
@@ -301,8 +301,8 @@ footer{padding:2.5rem 0;text-align:center;}
       <div class="exp-org en">UW–Madison, Department of Statistics</div><div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
       <div class="exp-role en">UNDERGRADUATE RESEARCH ASSISTANT &nbsp;·&nbsp; Advisor: <a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Prof. Xiao Luo</a></div>
       <div class="exp-role zh">本科科研助理 &nbsp;·&nbsp; 导师：<a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">罗潇 教授</a></div>
-      <p class="exp-desc en">RAG robustness and hallucination mitigation research. Two top-venue submissions: SIGIR '26 (1st author) and ACM MM '26 (co-first author). Focus on training-free confidence-based filtering and token-level evidence commitment for grounded generation.</p>
-      <p class="exp-desc zh">RAG鲁棒性与幻觉缓解研究。两篇顶会投稿：SIGIR '26（第一作者）与ACM MM '26（共同第一作者）。核心：免训练置信度过滤与token级证据承诺。</p>
+      <p class="exp-desc en">RAG robustness and hallucination mitigation research. Key outputs: MARIE (ACM MM '26, co-first author, under review) and GOING (ACM TIST Research Note, first author, in submission). Focus on training-free confidence-based filtering and token-level evidence commitment for grounded generation.</p>
+      <p class="exp-desc zh">RAG鲁棒性与幻觉缓解研究。核心成果：MARIE（ACM MM '26共同第一作者，审稿中）与GOING（ACM TIST Research Note第一作者，投稿中）。核心：免训练置信度过滤与token级证据承诺。</p>
       <div class="exp-tags"><span class="exp-tag">PyTorch</span><span class="exp-tag">Hugging Face</span><span class="exp-tag">Llama-3-8B</span><span class="exp-tag">RAG</span><span class="exp-tag">ColBERTv2</span></div>
     </div>
     <div class="exp-right"><div class="exp-date">Sep. 2023 – Present</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
