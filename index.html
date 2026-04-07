@@ -168,8 +168,8 @@ footer{padding:2.5rem 0;text-align:center;}
     <h1 class="hero-name zh">吴昊</h1>
     <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; GPA 4.0/4.0</p>
     <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; GPA 4.0/4.0</p>
-    <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — when and why should a model commit to its evidence, and how do we verify that it does? My work spans RAG robustness and grounded 3D medical report generation, with a paper under review at ACM MM '26 and a manuscript in submission to ACM TIST. My longer-term interest is extending spatial grounding techniques toward embodied AI and autonomous driving.</p>
-    <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——模型何时应对其引用的证据负责，以及我们如何验证？研究涵盖RAG鲁棒性与有依据的3D医学报告生成，目前一篇论文在ACM MM '26审稿中，另一篇正投稿至ACM TIST。长期兴趣方向是将空间定位技术延伸至具身AI与自动驾驶。</p>
+    <p class="hero-bio en">I study <strong>reliable and verifiable AI generation</strong> — when and why should a model commit to its evidence, and how do we verify that it does? My work spans RAG robustness and grounded 3D medical report generation, with a paper under review at ACM MM '26 and a manuscript in submission to ACM TIST. My longer-term interest is extending spatial grounding techniques toward medical, embodied AI and autonomous driving.</p>
+    <p class="hero-bio zh">我研究<strong>可靠且可验证的AI生成</strong>——模型何时应对其引用的证据负责，以及我们如何验证？研究涵盖RAG鲁棒性与有依据的3D医学报告生成，目前一篇论文在ACM MM '26审稿中，另一篇正投稿至ACM TIST。长期兴趣方向是将空间定位技术延伸至医疗, 具身AI与自动驾驶。</p>
     <div class="hero-links">
       <a class="link-chip" href="mailto:hwu522@wisc.edu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
@@ -205,7 +205,7 @@ footer{padding:2.5rem 0;text-align:center;}
       <p class="thread-body zh">以token级置信度增益作为免训练信号，检测有害检索并切换生成模式。→ <em>GOING, ACM TIST（投稿中）</em></p>
     </div>
     <div class="thread">
-      <div class="thread-num en">02 · GROUNDED GENERATION</div><div class="thread-num zh">02 · 有依据的生成</div>
+      <div class="thread-num en">02 · AI for Medical /div><div class="thread-num zh">02 · 医疗人工智能 </div>
       <div class="thread-head en">Verifiable 3D Medical Reporting</div><div class="thread-head zh">可验证3D医学报告生成</div>
       <p class="thread-body en">Every generated sentence must cite the exact spatial tokens it draws from — evidence commitment by construction. → <em>MARIE, ACM MM '26</em>. This token-gating mechanism is a direct analogue to grounding VLA planning outputs in BEV tokens for autonomous driving and robotic manipulation.</p>
       <p class="thread-body zh">每条生成句子须引用其所依赖的空间token，从设计层面保障证据承诺。→ <em>MARIE, ACM MM '26</em></p>
@@ -220,7 +220,7 @@ footer{padding:2.5rem 0;text-align:center;}
       <div class="thread-num en">04 · EMBODIED AI & AUTONOMOUS SYSTEMS</div><div class="thread-num zh">04 · 具身AI与自动驾驶</div>
       <div class="thread-head en">Spatial Grounding → VLA & Embodied AI</div><div class="thread-head zh">空间定位 → VLA与具身智能</div>
       <p class="thread-body en">A future direction I am actively pursuing: applying spatial token grounding techniques to medical/embodied AI and autonomous driving, where VLA models face the same core challenge of anchoring planning outputs to explicit perceptual evidence. The MARIE evidence commitment mechanism provides a direct conceptual bridge.</p>
-      <p class="thread-body zh">我正在积极探索的未来方向：将空间token定位技术延伸至医疗/具身AI与自动驾驶领域。VLA模型面临与MARIE相同的核心挑战——如何将规划输出锚定于明确的感知证据，MARIE的证据承诺机制为此提供了直接的概念桥梁。</p>
+      <p class="thread-body zh">我正在积极探索的未来方向：将空间token定位技术延伸至医疗,具身AI与自动驾驶领域。VLA模型面临与MARIE相同的核心挑战——如何将规划输出锚定于明确的感知证据，MARIE的证据承诺机制为此提供了直接的概念桥梁。</p>
     </div>
   </div>
 </section>
@@ -231,6 +231,21 @@ footer{padding:2.5rem 0;text-align:center;}
 
   <div class="pub-group">
     <div class="pub-group-label en">Under Review</div><div class="pub-group-label zh">审稿中</div>
+
+    <div class="pub">
+      <div class="pub-indicator ind-review"></div>
+      <div class="pub-content">
+        <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
+        <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
+        <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
+        <div class="pub-authors zh"><strong>吴昊</strong>, 周航, 罗潇</div>
+        <div class="pub-meta">
+          <span class="pub-venue">ACM Transactions on Intelligent Systems and Technology (TIST) · Research Note · in submission · 2026</span>
+          <span class="badge badge-review en">Under Review</span><span class="badge badge-review zh">审稿中</span>
+        </div>
+      </div>
+    </div>
+
     <div class="pub">
       <div class="pub-indicator ind-review"></div>
       <div class="pub-content">
@@ -264,20 +279,7 @@ footer{padding:2.5rem 0;text-align:center;}
   </div>
 
   <div class="pub-group">
-    <div class="pub-group-label en">Under Review</div><div class="pub-group-label zh">审稿中</div>
-    <div class="pub">
-      <div class="pub-indicator ind-prep"></div>
-      <div class="pub-content">
-        <div class="pub-title en">Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation</div>
-        <div class="pub-title zh">基于置信度增益的生成模式切换以缓解真实场景RAG噪声</div>
-        <div class="pub-authors en"><strong>Hao Wu</strong>, Hang Zhou, Xiao Luo</div>
-        <div class="pub-authors zh"><strong>吴昊</strong>, 周航, 罗潇</div>
-        <div class="pub-meta">
-          <span class="pub-venue">ACM Transactions on Intelligent Systems and Technology (TIST) · Research Note · in submission · 2026</span>
-          <span class="badge badge-prep en">Under Review<</span><span class="badge badge-prep zh">审稿中</span>
-        </div>
-      </div>
-    </div>
+    <div class="pub-group-label en">Manuscript/In Preparation</div><div class="pub-group-label zh">准备中</div>
     <div class="pub">
       <div class="pub-indicator ind-prep"></div>
       <div class="pub-content">
@@ -293,6 +295,7 @@ footer{padding:2.5rem 0;text-align:center;}
     </div>
   </div>
 </section>
+
 
 <!-- EXPERIENCE -->
 <section id="experience">
