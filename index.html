@@ -67,6 +67,7 @@ section:last-of-type{border-bottom:none;}
 .pub:last-child{border-bottom:none;}
 .pub-indicator{width:3px;border-radius:2px;flex-shrink:0;margin-top:4px;align-self:stretch;min-height:18px;}
 .ind-review{background:#f59e0b;}
+.ind-revision{background:#64748b;}
 .ind-pub{background:var(--green-light);}
 .ind-prep{background:#d1d5db;}
 .pub-content{flex:1;}
@@ -77,6 +78,7 @@ section:last-of-type{border-bottom:none;}
 .pub-venue{font-size:0.76rem;font-weight:400;color:var(--text-light);font-family:'IBM Plex Mono',monospace;}
 .badge{font-family:'IBM Plex Mono',monospace;font-size:0.67rem;font-weight:600;padding:0.12rem 0.55rem;border-radius:999px;letter-spacing:0.03em;}
 .badge-review{background:#fef3c7;color:#92400e;}
+.badge-revision{background:#e2e8f0;color:#334155;}
 .badge-pub{background:var(--green-pale);color:var(--green);}
 .badge-prep{background:#f3f4f6;color:var(--text-light);}
 
@@ -165,10 +167,10 @@ footer{padding:2.5rem 0;text-align:center;}
   <div>
     <h1 class="hero-name en">Hao <em>(Edison)</em> Wu</h1>
     <h1 class="hero-name zh">吴昊</h1>
-    <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; COMPUTER VISION / MULTIMODAL AI / 3D MEDICAL VISION</p>
-    <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; 计算机视觉 / 多模态AI / 3D医学视觉</p>
-    <p class="hero-bio en">I study <strong>reliable multimodal visual intelligence</strong>, with a focus on evidence-grounded generation, 3D medical vision, proactive video understanding, and efficient generative-model refinement. My current work includes <strong>MARIE</strong>, a co-first-author ACM Multimedia 2026 submission on 3D CT report generation, <strong>GOING</strong>, a first-author TIST submission on training-free RAG robustness, and a manuscript in preparation for <strong>TMLR</strong> on realistic evaluation of uncertainty quantification for LLM-based recommender systems. I am also working on Response-G1-style proactive Video-LLM reasoning and edit-based refinement for diffusion language models.</p>
-    <p class="hero-bio zh">我研究<strong>可靠的多模态视觉智能</strong>，关注证据约束生成、3D医学视觉、主动式视频理解与高效生成模型优化。当前工作包括<strong>MARIE</strong>：一项面向3D CT报告生成的ACM Multimedia 2026共同第一作者投稿；<strong>GOING</strong>：一篇关于免训练RAG鲁棒性的TIST第一作者投稿；以及一篇准备投递<strong>TMLR</strong>的LLM推荐系统不确定性量化真实评估手稿。我也在推进基于Response-G1的主动式Video-LLM推理，以及面向diffusion language model的edit-based refinement。</p>
+    <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; TRUSTWORTHY ML / BIOMEDICAL AI / MULTIMODAL SYSTEMS</p>
+    <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; 可信机器学习 / 生物医学AI / 多模态系统</p>
+    <p class="hero-bio en">I study <strong>reliable and efficient large-model systems</strong>, with a focus on uncertainty-aware evaluation, grounded multimodal medical AI, and temporal evidence reasoning. My current work includes <strong>MARIE</strong>, a co-first-author 3D CT report-generation manuscript in revision after the ACM Multimedia 2026 decision; <strong>GOING</strong>, a first-author TIST submission on training-free RAG robustness; a first-author <strong>TMLR</strong> manuscript in preparation on uncertainty evaluation for LLM-based recommendation; and <strong>ETGB</strong>, an uncertainty-aware proactive Video-LLM manuscript in preparation for KDD 2027. I also work on edit-based refinement for diffusion language models.</p>
+    <p class="hero-bio zh">我研究<strong>可靠且高效的大模型系统</strong>，关注不确定性感知评估、证据约束的医学多模态AI与时序证据推理。当前工作包括：共同第一作者的<strong>MARIE</strong>（3D CT报告生成；ACM Multimedia 2026决定后修订中）、第一作者的免训练RAG鲁棒性工作<strong>GOING</strong>（TIST审稿中）、准备投递<strong>TMLR</strong>的LLM推荐系统不确定性评估手稿，以及准备投递KDD 2027的主动式Video-LLM手稿<strong>ETGB</strong>。我也在研究扩散语言模型的edit-based refinement。</p>
     <div class="hero-links">
       <a class="link-chip" href="mailto:hwu522@wisc.edu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
@@ -204,14 +206,14 @@ footer{padding:2.5rem 0;text-align:center;}
     <div class="thread">
       <div class="thread-num en">01 · 3D MEDICAL VISION</div><div class="thread-num zh">01 · 3D医学视觉</div>
       <div class="thread-head en">Evidence-Grounded 3D CT Report Generation</div><div class="thread-head zh">证据约束的3D CT报告生成</div>
-      <p class="thread-body en"><em>MARIE</em> routes sentence-level volumetric evidence, exposes committed evidence through an Evidence Dictionary, and audits generated claims for anatomical consistency. → <em>ACM MM 2026 under review; co-first author</em></p>
-      <p class="thread-body zh"><em>MARIE</em> 对3D CT进行句子级体积证据路由，通过Evidence Dictionary约束生成，并审计解剖一致性。→ <em>ACM MM 2026审稿中；共同第一作者</em></p>
+      <p class="thread-body en"><em>MARIE</em> routes sentence-level volumetric evidence, exposes committed evidence through an Evidence Dictionary, and audits generated claims for anatomical consistency. → <em>In revision after the ACM Multimedia 2026 decision; co-first author</em></p>
+      <p class="thread-body zh"><em>MARIE</em> 对3D CT进行句子级体积证据路由，通过Evidence Dictionary约束生成，并审计解剖一致性。→ <em>ACM Multimedia 2026决定后修订中；共同第一作者</em></p>
     </div>
     <div class="thread">
       <div class="thread-num en">02 · VIDEO-LLM REASONING</div><div class="thread-num zh">02 · Video-LLM推理</div>
       <div class="thread-head en">Proactive Streaming Video Understanding</div><div class="thread-head zh">主动式流式视频理解</div>
-      <p class="thread-body en">I am extending <em>Response-G1</em> with structured evidence-condition alignment, scene-graph memory, query-conditioned retrieval, temporal aggregation, and uncertainty-aware readiness scoring.</p>
-      <p class="thread-body zh">我正在基于<em>Response-G1</em>扩展结构化证据-条件对齐、场景图记忆、query-conditioned retrieval、时序聚合与不确定性感知readiness scoring。</p>
+      <p class="thread-body en">I am developing <em>ETGB</em>, extending Response-G1 with structured evidence-condition alignment, scene-graph memory, query-conditioned retrieval, temporal aggregation, and uncertainty-aware readiness scoring. → <em>Manuscript in preparation for KDD 2027</em></p>
+      <p class="thread-body zh">我正在开发<strong>ETGB</strong>，在Response-G1上扩展结构化证据-条件对齐、场景图记忆、query-conditioned retrieval、时序聚合与不确定性感知readiness scoring。→ <em>准备投递KDD 2027</em></p>
     </div>
     <div class="thread">
       <div class="thread-num en">03 · DIFFUSION LANGUAGE MODELS</div><div class="thread-num zh">03 · 扩散语言模型</div>
@@ -222,7 +224,7 @@ footer{padding:2.5rem 0;text-align:center;}
     <div class="thread">
       <div class="thread-num en">04 · RELIABILITY &amp; EVALUATION</div><div class="thread-num zh">04 · 可靠性与评估</div>
       <div class="thread-head en">Uncertainty, RAG Robustness, and Realistic Evaluation</div><div class="thread-head zh">不确定性、RAG鲁棒性与真实评估</div>
-      <p class="thread-body en">My first-author work includes <em>GOING</em> for training-free RAG noise mitigation and a TMLR-preparation manuscript on realistic evaluation of uncertainty quantification for LLM-based recommender systems.</p>
+      <p class="thread-body en">My first-author work includes <em>GOING</em> for training-free RAG noise mitigation and a manuscript in preparation for <em>TMLR</em> on realistic evaluation of uncertainty quantification for LLM-based recommender systems.</p>
       <p class="thread-body zh">我的第一作者工作包括免训练RAG噪声缓解框架<em>GOING</em>，以及一篇准备投递TMLR的LLM推荐系统不确定性量化真实评估手稿。</p>
     </div>
   </div>
@@ -237,24 +239,27 @@ footer{padding:2.5rem 0;text-align:center;}
   </div>
 
   <div class="pub-group">
-    <div class="pub-group-label en">Under Review</div>
-    <div class="pub-group-label zh">审稿中</div>
-
+    <div class="pub-group-label en">In Revision</div>
+    <div class="pub-group-label zh">修订中</div>
     <div class="pub">
-      <div class="pub-indicator ind-review"></div>
+      <div class="pub-indicator ind-revision"></div>
       <div class="pub-content">
         <div class="pub-title en">MARIE: Multimodal Routing with Evidence Token Grounding for 3D CT Report Generation</div>
         <div class="pub-title zh">MARIE：基于多模态路由与证据Token定位的3D CT报告生成</div>
         <div class="pub-authors en">Tianyi Chen*, <strong>Hao Wu*</strong>, TianMing Sha, Sipeng Chen, Junnan Li, Hang Zhou, Xiao Luo <span style="color:#9ca3af;font-size:.78em">— *Co-first Authors</span></div>
         <div class="pub-authors zh">陈天一*, <strong>吴昊*</strong>, 沙天明, 陈思朋, 李俊男, 周航, 罗潇 <span style="color:#9ca3af;font-size:.78em">— *共同第一作者</span></div>
         <div class="pub-meta">
-          <span class="pub-venue">ACM Multimedia 2026 · Submission #4550 · Rebuttal completed, decision pending</span>
-          <span class="badge badge-review en">Under Review</span>
-          <span class="badge badge-review zh">审稿中</span>
+          <span class="pub-venue">Manuscript in revision after the ACM Multimedia 2026 decision</span>
+          <span class="badge badge-revision en">In Revision</span>
+          <span class="badge badge-revision zh">修订中</span>
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="pub-group">
+    <div class="pub-group-label en">Under Review</div>
+    <div class="pub-group-label zh">审稿中</div>
     <div class="pub">
       <div class="pub-indicator ind-review"></div>
       <div class="pub-content">
@@ -272,16 +277,15 @@ footer{padding:2.5rem 0;text-align:center;}
   </div>
 
   <div class="pub-group">
-    <div class="pub-group-label en">Ongoing / In Preparation</div>
-    <div class="pub-group-label zh">进行中 / 准备中</div>
-
+    <div class="pub-group-label en">In Preparation</div>
+    <div class="pub-group-label zh">准备中</div>
     <div class="pub">
       <div class="pub-indicator ind-prep"></div>
       <div class="pub-content">
         <div class="pub-title en">Towards Realistic Evaluation of Uncertainty Quantification for LLM-based Recommender Systems</div>
         <div class="pub-title zh">面向LLM推荐系统不确定性量化的真实评估</div>
-        <div class="pub-authors en"><strong>Hao Wu</strong>, [collaborators] <span style="color:#9ca3af;font-size:.78em">— First Author</span></div>
-        <div class="pub-authors zh"><strong>吴昊</strong>, [合作者] <span style="color:#9ca3af;font-size:.78em">— 第一作者</span></div>
+        <div class="pub-authors en"><strong>Hao Wu</strong>, Tianyi Chen, Sipeng Chen, Hang Zhou, Xiao Luo <span style="color:#9ca3af;font-size:.78em">— First Author</span></div>
+        <div class="pub-authors zh"><strong>吴昊</strong>, 陈天一, 陈思朋, 周航, 罗潇 <span style="color:#9ca3af;font-size:.78em">— 第一作者</span></div>
         <div class="pub-meta">
           <span class="pub-venue">Manuscript in preparation for TMLR · uncertainty quantification · calibration · robustness</span>
           <span class="badge badge-prep en">In Prep</span>
@@ -289,16 +293,15 @@ footer{padding:2.5rem 0;text-align:center;}
         </div>
       </div>
     </div>
-
     <div class="pub">
       <div class="pub-indicator ind-prep"></div>
       <div class="pub-content">
-        <div class="pub-title en">Reliable Multi-Property Molecule Optimization with Instruction-Tuned LLMs for Drug Discovery</div>
-        <div class="pub-title zh">面向药物发现的指令微调LLM多属性分子优化</div>
-        <div class="pub-authors en"><strong>Hao Wu</strong>, [collaborators] <span style="color:#9ca3af;font-size:.78em">— Co-Author</span></div>
-        <div class="pub-authors zh"><strong>吴昊</strong>, [合作者] <span style="color:#9ca3af;font-size:.78em">— 共同作者</span></div>
+        <div class="pub-title en">ETGB: Evidential Temporal Graph Belief for Proactive Streaming Video Understanding</div>
+        <div class="pub-title zh">ETGB：面向主动式流式视频理解的证据时序图信念</div>
+        <div class="pub-authors en"><strong>Hao Wu</strong> et al.</div>
+        <div class="pub-authors zh"><strong>吴昊</strong> 等</div>
         <div class="pub-meta">
-          <span class="pub-venue">Manuscript in preparation · 2026</span>
+          <span class="pub-venue">Manuscript in preparation for KDD 2027 · structured temporal evidence · uncertainty-aware response timing</span>
           <span class="badge badge-prep en">In Prep</span>
           <span class="badge badge-prep zh">准备中</span>
         </div>
@@ -317,7 +320,7 @@ footer{padding:2.5rem 0;text-align:center;}
         <div class="pub-authors en"><strong>Hao Wu</strong> et al. <span style="color:#9ca3af;font-size:.78em">— Co-first Author</span></div>
         <div class="pub-authors zh"><strong>吴昊</strong> 等 <span style="color:#9ca3af;font-size:.78em">— 共同第一作者</span></div>
         <div class="pub-meta">
-          <span class="pub-venue">Academic Journal of Mathematical Sciences · 2023 · 2,400+ views</span>
+          <span class="pub-venue">Academic Journal of Mathematical Sciences · 2023</span>
           <span class="badge badge-pub en">Published</span>
           <span class="badge badge-pub zh">已发表</span>
         </div>
@@ -335,8 +338,8 @@ footer{padding:2.5rem 0;text-align:center;}
       <div class="exp-org en">UW–Madison, Department of Statistics</div><div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
       <div class="exp-role en">UNDERGRADUATE RESEARCH ASSISTANT · Advisor: <a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Prof. Xiao Luo</a></div>
       <div class="exp-role zh">本科科研助理 · 导师：<a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">罗潇 教授</a></div>
-      <p class="exp-desc en">Research on reliable and verifiable multimodal generation, including 3D CT report generation, RAG robustness, and proactive streaming video understanding. Key outputs include MARIE (ACM MM 2026, co-first author), GOING (TIST, first author), and ongoing Response-G1-style Video-LLM reasoning.</p>
-      <p class="exp-desc zh">研究可靠且可验证的多模态生成，包括3D CT报告生成、RAG鲁棒性与主动式流式视频理解。核心成果包括MARIE（ACM MM 2026，共同第一作者）、GOING（TIST，第一作者）以及正在推进的基于Response-G1的Video-LLM推理。</p>
+      <p class="exp-desc en">Research on reliable multimodal and large-model systems, including 3D CT report generation, RAG robustness, uncertainty evaluation, and proactive streaming video understanding. Key outputs include MARIE (co-first author; in revision after the ACM Multimedia 2026 decision), GOING (TIST, first author), a TMLR manuscript in preparation, and ETGB for KDD 2027.</p>
+      <p class="exp-desc zh">研究可靠的多模态与大模型系统，包括3D CT报告生成、RAG鲁棒性、不确定性评估与主动式流式视频理解。核心成果包括MARIE（共同第一作者；ACM Multimedia 2026决定后修订中）、GOING（TIST，第一作者）、准备投递TMLR的手稿，以及准备投递KDD 2027的ETGB。</p>
       <div class="exp-tags"><span class="exp-tag">3D CT</span><span class="exp-tag">Medical VLM</span><span class="exp-tag">Video-LLM</span><span class="exp-tag">Scene Graph</span><span class="exp-tag">RAG</span><span class="exp-tag">UQ</span><span class="exp-tag">PyTorch</span></div>
     </div>
     <div class="exp-right"><div class="exp-date">Sep. 2025 – Present</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
@@ -427,9 +430,9 @@ footer{padding:2.5rem 0;text-align:center;}
 <section id="skills" style="border-bottom:none;">
   <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Technical Skills</h2><h2 class="sec-title zh">技术技能</h2></div>
   <div class="skill-row"><span class="skill-key en">Programming</span><span class="skill-key zh">编程语言</span><span class="skill-val">Python · PyTorch · Hugging Face · R · MATLAB · MySQL · MongoDB · Git · Linux · FastAPI</span></div>
-  <div class="skill-row"><span class="skill-key en">Vision / Multimodal</span><span class="skill-key zh">视觉/多模态</span><span class="skill-val">Computer Vision · VLMs · Video-LLMs · 3D CT Report Generation · Medical VLMs · Evidence Grounding · Scene Graph Reasoning · Temporal Retrieval</span></div>
-  <div class="skill-row"><span class="skill-key en">Generative AI</span><span class="skill-key zh">生成式AI</span><span class="skill-val">Diffusion Language Models · Edit-based Refinement · RAG · ColBERTv2 · Prompt Engineering · Llama-3 · Mistral-7B · BERT</span></div>
-  <div class="skill-row"><span class="skill-key en">ML / Data</span><span class="skill-key zh">机器学习/数据</span><span class="skill-val">Pandas · NumPy · Scikit-learn · XGBoost · LightGBM · Spark · HDFS · Model Evaluation Pipelines · Uncertainty Quantification</span></div>
+  <div class="skill-row"><span class="skill-key en">ML / NLP / Biomedical AI</span><span class="skill-key zh">机器学习 / NLP / 生物医学AI</span><span class="skill-val">Multimodal LLMs · VLMs · Video-LLMs · 3D CT Report Generation · Medical VLMs · Evidence Grounding · Scene Graph Reasoning · Temporal Retrieval</span></div>
+  <div class="skill-row"><span class="skill-key en">Generative &amp; Reliable AI</span><span class="skill-key zh">生成式与可靠AI</span><span class="skill-val">Diffusion Language Models · Edit-based Refinement · RAG Robustness · ColBERTv2 · Confidence Calibration · Uncertainty Quantification · Llama-3 · Mistral-7B · BERT</span></div>
+  <div class="skill-row"><span class="skill-key en">ML / Data Systems</span><span class="skill-key zh">机器学习 / 数据系统</span><span class="skill-val">Pandas · NumPy · Scikit-learn · XGBoost · LightGBM · Spark · HDFS · Model Evaluation Pipelines</span></div>
   <div class="skill-row">
     <span class="skill-key en">Languages</span><span class="skill-key zh">语言</span>
     <span class="skill-val en">English (Fluent) · Mandarin (Native) · Spanish (Elementary)</span>
