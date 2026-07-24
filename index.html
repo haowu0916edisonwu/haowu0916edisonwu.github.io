@@ -43,6 +43,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop
 .link-chip:hover{border-color:var(--green-light);color:var(--green);background:var(--green-bg);}
 .link-chip svg{width:13px;height:13px;}
 .avatar{width:120px;height:120px;border-radius:50%;border:2.5px solid var(--green-pale);background:var(--green-bg);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:2.8rem;color:var(--green);flex-shrink:0;opacity:0;animation:fadeup .5s .1s forwards;}
+.avatar-photo{width:130px;height:130px;flex-shrink:0;opacity:0;animation:fadeup .5s .1s forwards;}
+.avatar-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2.5px solid var(--green-pale);}
 
 section{padding:3.5rem 0;border-bottom:1px solid var(--border);}
 section:last-of-type{border-bottom:none;}
@@ -132,6 +134,7 @@ footer{padding:2.5rem 0;text-align:center;}
 @media(max-width:600px){
   .hero{grid-template-columns:1fr;gap:1.5rem;padding:3rem 0 2.5rem;}
   .avatar{width:80px;height:80px;font-size:2rem;}
+  .avatar-photo{width:80px;height:80px;}
   .threads{grid-template-columns:1fr;}
   .pub{flex-direction:column;gap:0.5rem;}
   .exp-item{grid-template-columns:1fr;}
@@ -167,10 +170,10 @@ footer{padding:2.5rem 0;text-align:center;}
   <div>
     <h1 class="hero-name en">Hao <em>(Edison)</em> Wu</h1>
     <h1 class="hero-name zh">吴昊</h1>
-    <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; MULTIMODAL HEALTH AI / RELIABLE AI / MEDICAL VISION</p>
-    <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; 多模态健康AI / 可靠AI / 医学视觉</p>
-    <p class="hero-bio en">I study <strong>reliable multimodal AI for health and visual intelligence</strong>, with a focus on evidence-grounded generation, uncertainty-aware evaluation, 3D medical vision, and temporal evidence reasoning. My current work includes <strong>MARIE</strong>, a co-first-author 3D CT report-generation manuscript in revision after the ACM Multimedia 2026 decision; <strong>GOING</strong>, a first-author TIST manuscript under review on training-free RAG robustness; a first-author <strong>TMLR</strong> manuscript in preparation on uncertainty evaluation for LLM-based recommendation; and <strong>ETGB</strong>, an uncertainty-aware proactive Video-LLM manuscript in preparation for KDD 2027. I am also interested in how calibrated evidence can support longitudinal health-data analysis and clinician-facing decision making.</p>
-    <p class="hero-bio zh">我研究<strong>面向健康与视觉智能的可靠多模态AI</strong>，关注证据约束生成、不确定性感知评估、3D医学视觉与时序证据推理。当前工作包括：共同第一作者的<strong>MARIE</strong>（3D CT报告生成；ACM Multimedia 2026决定后修订中）、第一作者的免训练RAG鲁棒性工作<strong>GOING</strong>（TIST审稿中）、准备投递<strong>TMLR</strong>的LLM推荐系统不确定性评估手稿，以及准备投递KDD 2027的主动式Video-LLM手稿<strong>ETGB</strong>。我也关注如何将经校准的证据用于纵向健康数据分析和面向临床决策的支持。</p>
+    <p class="hero-title en">UNDERGRADUATE RESEARCHER &nbsp;·&nbsp; UW–MADISON &nbsp;·&nbsp; MULTIMODAL AI / HEALTH AI / RELIABLE AI</p>
+    <p class="hero-title zh">本科科研 &nbsp;·&nbsp; 威斯康星大学麦迪逊分校 &nbsp;·&nbsp; 多模态AI / 健康AI / 可靠AI</p>
+    <p class="hero-bio en">I study <strong>reliable multimodal AI</strong>, with interests in AI for healthcare, evidence-grounded generation, uncertainty-aware evaluation, 3D medical vision, and temporal video-language reasoning. My current projects span clinical report generation, LLM reliability, RAG robustness, proactive Video-LLMs, and efficient generative-model refinement. I am interested in building AI systems that use multimodal evidence responsibly in real-world health and other high-stakes settings.</p>
+    <p class="hero-bio zh">我研究<strong>可靠的多模态AI</strong>，关注健康AI、证据约束生成、不确定性感知评估、3D医学视觉与时序视频语言推理。当前项目涵盖临床报告生成、LLM可靠性、RAG鲁棒性、主动式Video-LLM，以及高效生成模型优化。我希望构建能在真实医疗与其他高风险场景中负责任地使用多模态证据的AI系统。</p>
     <div class="hero-links">
       <a class="link-chip" href="mailto:hwu522@wisc.edu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
@@ -194,8 +197,8 @@ footer{padding:2.5rem 0;text-align:center;}
       </a>
     </div>
   </div>
-  <div style="width: 300px; height: 300px;">
-    <img src="HW.jpg" alt="Hao Wu" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+  <div class="avatar-photo">
+    <img src="HW.jpg" alt="Hao Wu">
   </div>
 </div>
 
@@ -212,8 +215,8 @@ footer{padding:2.5rem 0;text-align:center;}
     <div class="thread">
       <div class="thread-num en">02 · VIDEO-LLM REASONING</div><div class="thread-num zh">02 · Video-LLM推理</div>
       <div class="thread-head en">Proactive Streaming Video Understanding</div><div class="thread-head zh">主动式流式视频理解</div>
-      <p class="thread-body en">I am developing <em>ETGB</em>, extending Response-G1 with structured evidence-condition alignment, scene-graph memory, query-conditioned retrieval, temporal aggregation, and uncertainty-aware readiness scoring. → <em>Manuscript in preparation for KDD 2027</em></p>
-      <p class="thread-body zh">我正在开发<strong>ETGB</strong>，在Response-G1上扩展结构化证据-条件对齐、场景图记忆、query-conditioned retrieval、时序聚合与不确定性感知readiness scoring。→ <em>准备投递KDD 2027</em></p>
+      <p class="thread-body en">I am developing <em>ETGB</em>, extending Response-G1 with structured evidence-condition alignment, scene-graph memory, query-conditioned retrieval, temporal aggregation, and uncertainty-aware readiness scoring. → <em>Manuscript in preparation for the August 2026 ACL ARR cycle</em></p>
+      <p class="thread-body zh">我正在开发<strong>ETGB</strong>，在Response-G1上扩展结构化证据-条件对齐、场景图记忆、query-conditioned retrieval、时序聚合与不确定性感知readiness scoring。→ <em>正在为2026年8月ACL ARR周期准备手稿</em></p>
     </div>
     <div class="thread">
       <div class="thread-num en">03 · DIFFUSION LANGUAGE MODELS</div><div class="thread-num zh">03 · 扩散语言模型</div>
@@ -223,9 +226,9 @@ footer{padding:2.5rem 0;text-align:center;}
     </div>
     <div class="thread">
       <div class="thread-num en">04 · RELIABILITY &amp; EVALUATION</div><div class="thread-num zh">04 · 可靠性与评估</div>
-      <div class="thread-head en">Calibrated Evaluation and Actionable Multimodal AI</div><div class="thread-head zh">经校准的评估与可行动的多模态AI</div>
-      <p class="thread-body en">My first-author work includes <em>GOING</em> for training-free RAG noise mitigation and a manuscript in preparation for <em>TMLR</em> on realistic uncertainty evaluation for LLM-based recommender systems. I am interested in extending this reliability perspective to longitudinal multimodal health data and clinician-facing decision support.</p>
-      <p class="thread-body zh">我的第一作者工作包括免训练RAG噪声缓解框架<em>GOING</em>，以及一篇准备投递TMLR的LLM推荐系统不确定性量化真实评估手稿。我也关注将这一可靠性视角延展到纵向多模态健康数据与面向临床决策的支持。</p>
+      <div class="thread-head en">Reliable AI and Realistic Evaluation</div><div class="thread-head zh">可靠AI与真实评估</div>
+      <p class="thread-body en">My first-author work includes <em>GOING</em> for training-free RAG noise mitigation and a manuscript in preparation for <em>TMLR</em> on realistic uncertainty evaluation for LLM-based recommender systems. I am interested in extending this reliability perspective to multimodal health data and other high-stakes AI systems.</p>
+      <p class="thread-body zh">我的第一作者工作包括免训练RAG噪声缓解框架<em>GOING</em>，以及一篇准备投递TMLR的LLM推荐系统不确定性量化真实评估手稿。我也关注将这一可靠性视角延展到多模态健康数据与其他高风险AI系统。</p>
     </div>
   </div>
 </section>
@@ -301,7 +304,7 @@ footer{padding:2.5rem 0;text-align:center;}
         <div class="pub-authors en"><strong>Hao Wu</strong> et al.</div>
         <div class="pub-authors zh"><strong>吴昊</strong> 等</div>
         <div class="pub-meta">
-          <span class="pub-venue">Manuscript in preparation for KDD 2027 · structured temporal evidence · uncertainty-aware response timing</span>
+          <span class="pub-venue">Manuscript in preparation for the August 2026 ACL ARR cycle · structured temporal evidence · uncertainty-aware response timing</span>
           <span class="badge badge-prep en">In Prep</span>
           <span class="badge badge-prep zh">准备中</span>
         </div>
@@ -338,8 +341,8 @@ footer{padding:2.5rem 0;text-align:center;}
       <div class="exp-org en">UW–Madison, Department of Statistics</div><div class="exp-org zh">威斯康星大学麦迪逊分校统计系</div>
       <div class="exp-role en">UNDERGRADUATE RESEARCH ASSISTANT · Advisor: <a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Prof. Xiao Luo</a></div>
       <div class="exp-role zh">本科科研助理 · 导师：<a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">罗潇 教授</a></div>
-      <p class="exp-desc en">Research on reliable multimodal AI for health and visual intelligence, including 3D CT report generation, RAG robustness, uncertainty evaluation, and proactive streaming video understanding. Key outputs include MARIE (co-first author; in revision after the ACM Multimedia 2026 decision), GOING (TIST, first author), a TMLR manuscript in preparation, and ETGB for KDD 2027.</p>
-      <p class="exp-desc zh">研究面向健康与视觉智能的可靠多模态AI，包括3D CT报告生成、RAG鲁棒性、不确定性评估与主动式流式视频理解。核心成果包括MARIE（共同第一作者；ACM Multimedia 2026决定后修订中）、GOING（TIST，第一作者）、准备投递TMLR的手稿，以及准备投递KDD 2027的ETGB。</p>
+      <p class="exp-desc en">Research on reliable multimodal AI for healthcare and visual intelligence, including 3D CT report generation, RAG robustness, uncertainty evaluation, and proactive streaming video understanding. Key outputs include MARIE (co-first author; in revision after the ACM Multimedia 2026 decision), GOING (TIST, first author), a TMLR manuscript in preparation, and ETGB for the August 2026 ACL ARR cycle.</p>
+      <p class="exp-desc zh">研究面向医疗健康与视觉智能的可靠多模态AI，包括3D CT报告生成、RAG鲁棒性、不确定性评估与主动式流式视频理解。核心成果包括MARIE（共同第一作者；ACM Multimedia 2026决定后修订中）、GOING（TIST，第一作者）、准备投递TMLR的手稿，以及为2026年8月ACL ARR周期准备的ETGB。</p>
       <div class="exp-tags"><span class="exp-tag">3D CT</span><span class="exp-tag">Medical VLM</span><span class="exp-tag">Video-LLM</span><span class="exp-tag">Scene Graph</span><span class="exp-tag">RAG</span><span class="exp-tag">UQ</span><span class="exp-tag">PyTorch</span></div>
     </div>
     <div class="exp-right"><div class="exp-date">Sep. 2025 – Present</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
