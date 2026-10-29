@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Hao (Edison) Wu</title>
-<meta name="description" content="Hao (Edison) Wu is a UW–Madison undergraduate researcher studying reliable and efficient foundation models, uncertainty quantification, adaptive inference, diffusion language models, multimodal reasoning, and AI for Science."/>
+<meta name="description" content="Hao (Edison) Wu is a UW–Madison undergraduate researcher studying reliable and efficient foundation models, uncertainty quantification, adaptive inference, diffusion language models, multimodal reasoning, and AI for Science, including ORDER and molecular inference benchmarking."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -224,8 +224,8 @@ body.lang-zh .hero-name.zh, body.lang-zh .hero-title.zh, body.lang-zh .hero-bio.
     <div class="thread">
       <div class="thread-num en">02 · EFFICIENT &amp; ADAPTIVE INFERENCE</div><div class="thread-num zh">02 · 高效与自适应推理</div>
       <div class="thread-head en">Diffusion Refinement and Budgeted Reasoning</div><div class="thread-head zh">扩散模型修正与预算约束推理</div>
-      <p class="thread-body en"><em>CaRR</em> improves low-budget diffusion-language-model refinement through token remasking and trajectory-based output recovery. <em>ForeRead</em> allocates a shared teacher-token budget and supports confirmed intermediate-answer readouts.</p>
-      <p class="thread-body zh"><em>CaRR</em> 通过 Token Remasking 和基于轨迹的答案恢复改善低预算扩散语言模型推理；<em>ForeRead</em> 分配共享的 Teacher Token 预算，并通过确认机制读取中间答案。</p>
+      <p class="thread-body en"><em>CaRR</em> improves low-budget diffusion-language-model refinement through token remasking and trajectory-based output recovery. <em>ORDER</em> combines opening-based cost forecasting, shared-budget scheduling, and multi-student answer probing for efficient reasoning.</p>
+      <p class="thread-body zh"><em>CaRR</em> 通过 Token Remasking 和基于轨迹的答案恢复改善低预算扩散语言模型推理；<em>ORDER</em> 结合初始推理阶段的成本预测、共享预算调度和多学生答案探测，实现更高效的推理。</p>
     </div>
     <div class="thread">
       <div class="thread-num en">03 · MULTIMODAL EVIDENCE</div><div class="thread-num zh">03 · 多模态证据</div>
@@ -236,13 +236,13 @@ body.lang-zh .hero-name.zh, body.lang-zh .hero-title.zh, body.lang-zh .hero-bio.
     <div class="thread">
       <div class="thread-num en">04 · AI FOR SCIENCE</div><div class="thread-num zh">04 · 科学智能</div>
       <div class="thread-head en">Molecular Optimization and Test-Time Scaling</div><div class="thread-head zh">分子优化与测试时计算扩展</div>
-      <p class="thread-body en">Our ongoing molecular benchmark compares nine inference strategies on two frozen molecular language models across ten tasks, separating successful candidate generation from final-output selection and property-improvement magnitude.</p>
-      <p class="thread-body zh">进行中的分子优化基准比较了两种冻结分子语言模型、十项任务下的九种推理策略，区分候选生成、最终分子选择，以及性质改善幅度的不同评价目标。</p>
+      <p class="thread-body en">Our molecular inference benchmark compares nine strategies on two frozen language models across ten tasks. It evaluates twenty ordered outputs per input, separating success coverage from ordering, chemical validity, and generation workload.</p>
+      <p class="thread-body zh">分子推理基准在两种冻结语言模型和十项任务上比较九种策略，每个输入评估二十个有序输出，区分成功候选覆盖、输出顺序、分子有效性与生成开销。</p>
     </div>
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
+<!-- PUBLICATIONS: unsubmitted TACL and RECOMB manuscripts are not linked publicly. -->
 <section id="publications">
   <div class="sec-header"><div class="sec-dot"></div><h2 class="sec-title en">Manuscripts &amp; Publications</h2><h2 class="sec-title zh">手稿与发表</h2></div>
   <div class="pub-group">
@@ -301,13 +301,13 @@ body.lang-zh .hero-name.zh, body.lang-zh .hero-title.zh, body.lang-zh .hero-bio.
     <div class="pub">
       <div class="pub-indicator ind-prep"></div>
       <div class="pub-content">
-        <div class="pub-title en">ForeRead — Shared-Budget Teacher–Student Reasoning</div>
-        <div class="pub-title zh">ForeRead：共享预算的教师—学生协作推理</div>
+        <div class="pub-title en">ORDER: Opening-oriented Cost Regression with Multi-student Probing for LLM Thinking Budget Control</div>
+        <div class="pub-title zh">ORDER：基于初始推理成本回归与多学生探测的大模型推理预算控制</div>
         <div class="pub-authors en">UW–Madison · Research with Prof. Xiao Luo · Co-first author (second-listed)</div>
         <div class="pub-authors zh">UW–Madison · 罗潇教授指导 · 共同第一作者（署名第二）</div>
         <div class="pub-meta">
-          <span class="pub-venue en">Planned submission: TMLR · November 2026</span>
-          <span class="pub-venue zh">计划投稿：TMLR · 2026 年 11 月</span>
+          <span class="pub-venue en">Full draft prepared · Preparing for TACL · Not submitted</span>
+          <span class="pub-venue zh">初稿已完成 · 准备投稿 TACL · 尚未提交</span>
           <span class="badge badge-prep en">In Preparation</span>
           <span class="badge badge-prep zh">准备投稿</span>
         </div>
@@ -317,13 +317,13 @@ body.lang-zh .hero-name.zh, body.lang-zh .hero-title.zh, body.lang-zh .hero-bio.
     <div class="pub">
       <div class="pub-indicator ind-prep"></div>
       <div class="pub-content">
-        <div class="pub-title en">Benchmarking Test-Time Scaling for Multi-Property Molecular Optimization</div>
-        <div class="pub-title zh">多性质分子优化中的测试时计算扩展基准评估</div>
+        <div class="pub-title en">Benchmarking Inference Strategies for Multi-Property Molecular Optimization</div>
+        <div class="pub-title zh">多性质分子优化中的推理策略基准评估</div>
         <div class="pub-authors en">UW–Madison · Research with Prof. Xiao Luo · Second author</div>
         <div class="pub-authors zh">UW–Madison · 罗潇教授指导 · 第二作者</div>
         <div class="pub-meta">
-          <span class="pub-venue en">Planned submission: RECOMB 2027 · November 2026</span>
-          <span class="pub-venue zh">计划投稿：RECOMB 2027 · 2026 年 11 月</span>
+          <span class="pub-venue en">Full draft prepared · Preparing for RECOMB 2027 · Not submitted</span>
+          <span class="pub-venue zh">初稿已完成 · 准备投稿 RECOMB 2027 · 尚未提交</span>
           <span class="badge badge-prep en">In Preparation</span>
           <span class="badge badge-prep zh">进行中</span>
         </div>
@@ -393,8 +393,8 @@ body.lang-zh .hero-name.zh, body.lang-zh .hero-title.zh, body.lang-zh .hero-bio.
       <div class="exp-org en">University of Wisconsin–Madison</div><div class="exp-org zh">威斯康星大学麦迪逊分校</div>
       <div class="exp-role en">UNDERGRADUATE RESEARCH ASSISTANT<br>Research mentors:<br><a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Prof. Xiao Luo</a> (UW–Madison)<br>Prof. Hang Zhou (UNC–Chapel Hill)</div>
       <div class="exp-role zh">本科科研助理<br>研究导师：<br><a href="mailto:xiao.luo@wisc.edu" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">罗潇教授</a>（威斯康星大学麦迪逊分校）<br>周航教授（北卡罗来纳大学教堂山分校）</div>
-      <p class="exp-desc en">Research across uncertainty quantification (RecUQ), online video understanding (CENTRE), 3D CT report generation (MARIE), and RAG robustness (GOING). Ongoing collaborations also study shared-budget teacher–student reasoning (ForeRead) and test-time scaling for molecular optimization.</p>
-      <p class="exp-desc zh">研究涵盖不确定性量化（RecUQ）、在线视频理解（CENTRE）、3D CT 报告生成（MARIE）与 RAG 鲁棒性（GOING）；同时合作开展共享预算的教师—学生推理（ForeRead）及分子优化中的测试时计算扩展研究。</p>
+      <p class="exp-desc en">Research across uncertainty quantification (RecUQ), online video understanding (CENTRE), 3D CT report generation (MARIE), and RAG robustness (GOING). Ongoing collaborations also study shared-budget teacher–student reasoning (ORDER) and an inference-strategy benchmark for molecular optimization.</p>
+      <p class="exp-desc zh">研究涵盖不确定性量化（RecUQ）、在线视频理解（CENTRE）、3D CT 报告生成（MARIE）与 RAG 鲁棒性（GOING）；同时合作开展共享预算的教师—学生推理（ORDER）及分子优化中的推理策略评估。</p>
       <div class="exp-tags"><span class="exp-tag">LLM Evaluation</span><span class="exp-tag">Uncertainty</span><span class="exp-tag">Multimodal AI</span><span class="exp-tag">Budgeted Inference</span><span class="exp-tag">RAG</span><span class="exp-tag">Molecular Optimization</span></div>
     </div>
     <div class="exp-right"><div class="exp-date">Sep. 2025 – Present</div><div class="exp-loc en">Madison, WI</div><div class="exp-loc zh">麦迪逊</div></div>
