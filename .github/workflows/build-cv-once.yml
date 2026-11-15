@@ -1,0 +1,42 @@
+name: Build updated CV
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Hao_Wu_CV.tex'
+      - '.github/workflows/build-cv-once.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended poppler-utils
+      - name: Compile and validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cv-build
+          pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -output-directory=/tmp/cv-build Hao_Wu_CV.tex
+          pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -output-directory=/tmp/cv-build Hao_Wu_CV.tex
+          test "$(pdfinfo /tmp/cv-build/Hao_Wu_CV.pdf | awk '/^Pages:/ {print $2}')" = '2'
+          pdftotext /tmp/cv-build/Hao_Wu_CV.pdf /tmp/cv-build/cv.txt
+          grep -q 'Accepted' /tmp/cv-build/cv.txt
+          grep -q 'Manuscript in revision' /tmp/cv-build/cv.txt
+          grep -q 'RECOMB 2027' /tmp/cv-build/cv.txt
+          ! grep -q 'EACL 2027' /tmp/cv-build/cv.txt
+          cp /tmp/cv-build/Hao_Wu_CV.pdf Hao_Wu_CV.pdf
+      - name: Save compiled CV
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Hao_Wu_CV.pdf
+          git diff --cached --quiet && exit 0
+          git commit -m 'Compile CV with updated TMLR, TACL, RECOMB and CENTRE statuses'
+          git push origin HEAD:main

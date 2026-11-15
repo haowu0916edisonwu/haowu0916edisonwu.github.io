@@ -1,0 +1,205 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.64in,footskip=0.27in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+\definecolor{ink}{HTML}{172B45}
+\definecolor{muted}{HTML}{525A63}
+\hypersetup{
+  pdftitle={Hao Wu - Academic Curriculum Vitae},
+  pdfauthor={Hao Wu},
+  pdfsubject={Research background and academic qualifications, November 2026}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{1.2em}
+\raggedbottom
+\AtBeginDocument{\fontsize{10pt}{11.65pt}\selectfont}
+
+\titleformat{\section}{\large\bfseries\color{ink}}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+\setlist[itemize]{leftmargin=1.15em,topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt}
+\setlist[enumerate]{leftmargin=1.6em,topsep=2pt,itemsep=6pt,parsep=0pt,partopsep=0pt}
+\renewcommand{\labelitemi}{\raisebox{0.2ex}{\tiny\textbullet}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{\scriptsize\color{muted}Hao Wu \quad|\quad Curriculum Vitae}
+\fancyfoot[R]{\scriptsize\color{muted}November 2026 \quad|\quad \thepage}
+
+\newcommand{\entry}[4]{%
+  \needspace{3\baselineskip}%
+  \begin{tabularx}{\linewidth}{@{}Xr@{}}
+    \textbf{#1} & #2\\[-1pt]
+    \textit{#3} & \textit{#4}
+  \end{tabularx}\par
+}
+\newcommand{\compactentry}[3]{%
+  \needspace{3\baselineskip}%
+  \textbf{#1}\hfill #2\par
+  #3\par\vspace{3pt}
+}
+
+% Updated: 15 November 2026. Publication statuses updated from the author's confirmation.
+% RecUQ accepted at TMLR; ORDER under review at TACL; RECOMB 2027 submitted.
+% CENTRE is in revision for journal submission; no target journal is asserted as a current venue.
+% ORDER title, authorship and equal contribution retained from the TACL manuscript.
+% No confidential manuscript PDF is linked publicly.
+\begin{document}
+
+\begin{center}
+  {\fontsize{22pt}{25pt}\selectfont\bfseries\color{ink}Hao (Edison) Wu}\\[4pt]
+  Madison, WI \quad|\quad +1 608-707-2006 \quad|\quad
+  \href{mailto:hwu522@wisc.edu}{hwu522@wisc.edu}\\[2pt]
+  \href{https://haowu0916edisonwu.github.io}{Website}\quad|\quad
+  \href{https://github.com/haowu0916edisonwu}{GitHub}\quad|\quad
+  \href{https://www.linkedin.com/in/hao-edison-wu-33a884324}{LinkedIn}\quad|\quad
+  \href{mailto:wuhao89810912@gmail.com}{wuhao89810912@gmail.com}
+\end{center}
+\vspace{-5pt}
+
+\section{Education}
+\entry{University of Wisconsin--Madison}{Madison, WI}
+{B.S., double major in Data Science and Information Science}
+{Sep.\ 2024 -- Dec.\ 2026 (expected)}
+\begin{itemize}
+  \item \textbf{Cumulative GPA: 4.00/4.00.}
+  \item Selected coursework: Machine Learning; Text Mining; Big Data Systems; Database Design; Data Science Modeling; Statistical Data Visualization; Human Computer Interaction.
+\end{itemize}
+\vspace{2pt}
+\entry{Xi'an Jiaotong--Liverpool University}{Suzhou, China}
+{Undergraduate study in Financial Mathematics; transferred to UW--Madison}{2022 -- 2024}
+
+\section{Research Focus}
+My research focuses on reliable and efficient foundation models, particularly uncertainty quantification, adaptive inference, and multimodal reasoning. I investigate how models evaluate evidence, allocate inference-time computation, and improve prediction and generation across language, vision, and scientific tasks.
+
+\section{Accepted and Published Work}
+\begin{enumerate}[label={[\arabic*]},start=1]
+
+  \item \textbf{Hao Wu}, Sipeng Chen, Qiancheng Yang, Hang Zhou, Xiao Luo.
+  \textquotedblleft Towards Realistic Evaluation of Uncertainty Quantification for LLM-Based Recommender Systems.\textquotedblright{}
+  \textit{Transactions on Machine Learning Research (TMLR)}, 2026.
+  \textbf{Accepted.}
+  \textit{First author.}
+   \href{https://openreview.net/forum?id=GXDe6REdu3}{[OpenReview]}
+
+  \item Mingxuan Zhao, \textbf{Hao Wu}, Le Liu, Xiping Mao.
+  \textquotedblleft Forecast of Bond Issuance Based on ESG Score.\textquotedblright{}
+  \textit{Academic Journal of Mathematical Sciences}, 4(3):52--59, 2023.
+  \textit{Corresponding author.}
+  \href{https://doi.org/10.25236/AJMS.2023.040309}{[DOI]}
+
+\end{enumerate}
+
+\section{Submitted and Under-Review Manuscripts}
+\begin{enumerate}[label={[\arabic*]},start=3]
+
+  \item \textbf{Hao Wu}, Sipeng Chen, Qiancheng Yang, Jingwen Fu, Yuwang Wang.
+  \textquotedblleft Closing Performance Gap for Diffusion Language Models under Low Inference Budgets.\textquotedblright{}
+  \textit{ICLR 2027}.
+  \textbf{Under review.}
+  \textit{First author.}
+  \href{https://openreview.net/forum?id=u9yyhqb2cN}{[OpenReview]}
+
+  \item Sipeng Chen\textsuperscript{*}, \textbf{Hao Wu}\textsuperscript{*}, Qiancheng Yang, Hang Zhou, Xiao Luo.
+  \textquotedblleft Opening-oriented Cost Regression with Multi-student Probing for LLM Thinking Budget Control.\textquotedblright{}
+  \textit{Transactions of the Association for Computational Linguistics (TACL)}, 2026.
+  \textbf{Under review.}
+  \textit{Co-first author (second-listed); \textsuperscript{*}equal contribution.}
+
+  \item Wanzhou Li, Haonan Chen, \textbf{Hao Wu}, Hang Zhou, Xiao Luo.
+  \textquotedblleft Benchmarking Inference Strategies for Multi-Property Molecular Optimization.\textquotedblright{}
+  \textit{RECOMB 2027}.
+  \textbf{Submitted.}
+  \textit{Third author.}
+
+\end{enumerate}
+
+\section{Manuscripts in Revision and Preparation}
+\begin{enumerate}[label={[\arabic*]},start=6]
+
+  \item \textbf{Hao Wu}, Sipeng Chen, Qiancheng Yang, Hang Zhou, Xiao Luo.
+  \textquotedblleft CENTRE: Calibrated Response Trigger with Multi-resolution Retention for Online Video Understanding.\textquotedblright{}
+  2026.
+  \textbf{Manuscript in revision.}
+  \textit{Co-first author (first-listed).}
+
+  \item \textbf{Hao Wu}, Tianyi Chen, Sipeng Chen, Hang Zhou, Xiao Luo.
+  \textquotedblleft GOING: Generative Mode Switching with Confidence Gain for Real-World RAG Noise Mitigation.\textquotedblright{}
+  \textbf{Manuscript in preparation.}
+  \textit{Target venue: IEEE Transactions on Artificial Intelligence (TAI), 2026.}
+  \textit{First author.}
+
+  \item Tianyi Chen, \textbf{Hao Wu}, TianMing Sha, Sipeng Chen, Junnan Li, Hang Zhou, Xiao Luo.
+  \textquotedblleft MARIE: Multimodal Routing with Evidence Token Grounding for 3D CT Report Generation.\textquotedblright{}
+  \textbf{Manuscript}, 2026.
+  \textit{Co-first author.}
+
+\end{enumerate}
+
+\section{Honors and Awards}
+\textbf{L\&S Dean's List}, University of Wisconsin--Madison
+\hfill Fall 2024; Fall 2025; Spring 2026\\[3pt]
+\textbf{University Excellence Award}, Xi'an Jiaotong--Liverpool University
+\hfill 2022 -- 2024
+
+\newpage
+
+\section{Research Experience}
+\entry{University of Wisconsin--Madison}{Madison, WI}
+{Undergraduate Research Assistant}{Sep.\ 2025 -- Present}
+{\small\textit{Research mentors: Prof.\ Xiao Luo (UW--Madison) and Prof.\ Hang Zhou (UNC--Chapel Hill)}}\par
+\begin{itemize}[topsep=4pt,itemsep=5pt]
+  \item \textbf{RecUQ} \textit{(first author; accepted at TMLR):} Developed a fixed-ranking benchmark of eight UQ signals across four datasets: 42,475 eligible Llama records and a Qwen replication on 4,000 Warm-start cases. Distinguished failure detection from responses to controlled user-history and item-content changes.
+  \item \textbf{CENTRE} \textit{(first-listed co-first author):} Led problem formulation and methodology for frozen Video-LLMs, combining multi-resolution retention, horizon-aware response calibration, and order-robust answer readout.
+  \item \textbf{MARIE} \textit{(co-first author):} Contributed to evidence grounding for 3D CT report generation and implemented multimodal training and evaluation pipelines.
+  \item \textbf{GOING} \textit{(first author):} Proposed confidence-based generation control for retrieval-augmented generation, using relative confidence gain to identify when retrieved evidence degrades generation.
+  \item \textbf{ORDER} \textit{(co-first author, second-listed):} Developed shared-budget reasoning control using opening-based cost forecasts, a single continuation/restart priority queue, multi-student answer probing, and selective handover. Across six mathematics benchmarks, achieved 79.8\% vs. 73.8\% teacher-only macro accuracy under a teacher-token allowance of 4,694 per problem, and 86.3\% vs. 82.0\% under an allowance of 14,012.
+  \item \textbf{Multi-property molecular inference benchmark} \textit{(third author; submitted to RECOMB 2027):} Compared nine inference strategies on two fixed molecular LMs and ten tasks (3,905 task--input pairs). Evaluated twenty ordered outputs per input to separate candidate success coverage, selection order, molecular validity, and generation workload.
+\end{itemize}
+
+\vspace{6pt}
+\entry{Tsinghua University}{Beijing, China / Remote}
+{Research Assistant --- Diffusion Language Models}{May 2026 -- Present}
+\begin{itemize}[topsep=4pt,itemsep=3pt]
+  \item \textbf{CaRR --- Commitment-aware Refinement and Recovery} \textit{(first author):} Developed token commitment remasking and trajectory-based output recovery to improve editable diffusion decoding within an existing inference schedule.
+  \item Improved average accuracy across six code and mathematics metrics by \textbf{7.44 percentage points} over native ME-DLM at a budget of \textbf{64 scheduled model forwards}; evaluated four matched inference budgets without additional backbone forwards.
+\end{itemize}
+
+\section{Teaching and Mentoring}
+\entry{Data Science Peer Mentor}{UW--Madison, Department of Statistics}
+{Undergraduate mentoring in machine learning, statistics, and programming}{Jul.\ 2025 -- Present}
+\begin{itemize}
+  \item Support students through weekly office hours and project debugging sessions in Python and R.
+\end{itemize}
+
+\section{Project and Professional Experience}
+\compactentry{MadData 2026 Hackathon --- MadNote AI Platform}{Feb.\ 2026}
+{Backend and AI Developer, dotData @ UW--Madison. Co-developed a paper discovery platform with FastAPI, BERT keyword extraction and a Mistral-7B + RAG assistant over 10,000+ academic abstracts.}
+
+\compactentry{Guo Dao Asset Management Co., Ltd. --- Data Engineering Intern}{Jun.\ -- Aug.\ 2025}
+{Shanghai, China. Developed Python/SQL trading-data pipelines and supported feature engineering and backtesting.}
+
+\compactentry{Dong Hai Securities Co., Ltd. --- Data Analyst Intern}{Jul.\ -- Aug.\ 2023}
+{Changzhou, China. Automated extraction and preprocessing of financial records for 500+ companies using Python and Pandas.}
+
+\section{Technical Skills and Languages}
+\textbf{Research and ML:} PyTorch, Hugging Face Transformers; LLMs/VLMs, diffusion language models, uncertainty quantification, calibration, RAG, multimodal evidence grounding.\\[3pt]
+\textbf{Programming and Data:} Python, R, MATLAB, SQL; Pandas, NumPy, Scikit-learn, XGBoost, LightGBM; Spark, Kafka, HDFS, Cassandra, MySQL, MongoDB, BigQuery; Git, Linux.\\[3pt]
+\textbf{Languages:} Mandarin (native), English (fluent), Spanish (elementary).
+
+\end{document}
